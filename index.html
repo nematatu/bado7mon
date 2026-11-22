@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>バド7問！ - 7回の質問でバドミントン選手を特定</title>
+  <meta name="description" content="7回の質問であなたの考えているバドミントン選手をピタリと当てます！日本代表・S/Jリーグ・BWF世界トップ＆レジェンド全128名対応・登録不要。">
+  <link rel="icon" type="image/png" href="icon.png">
+
+  <!-- OGP / Open Graph Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nematatu.github.io/bado7mon/">
+  <meta property="og:title" content="バド7問！ - 7回の質問でバドミントン選手を特定">
+  <meta property="og:description" content="7回の質問であなたの考えているバドミントン選手を当てます！日本＆世界のトップ選手・レジェンド全128名対応。">
+  <meta property="og:image" content="https://nematatu.github.io/bado7mon/thumbnail.png">
+  <meta property="og:site_name" content="バド7問！">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://nematatu.github.io/bado7mon/">
+  <meta name="twitter:title" content="バド7問！ - 7回の質問でバドミントン選手を特定">
+  <meta name="twitter:description" content="7回の質問であなたの考えているバドミントン選手を当てます！日本＆世界のトップ選手・レジェンド全128名対応。">
+  <meta name="twitter:image" content="https://nematatu.github.io/bado7mon/thumbnail.png">
+
+  <!-- Google Fonts: Zen Maru Gothic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=20261122_1">
+</head>
+
+<body>
+  <div class="app-container">
+    <!-- ヘッダー -->
+    <header class="app-header">
+      <a href="index.html" class="logo" id="header-logo-link">
+        <img src="icon.png" alt="バド7問！" class="logo-icon">
+        <span class="logo-text">バド7問！</span>
+      </a>
+      <a href="tree/index.html" class="header-tree-link" id="header-tree-link">
+        <span>🌳 全質問ツリー</span>
+      </a>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main class="app-main">
+      <!-- 1. TOP画面 -->
+      <section id="screen-top" class="screen active">
+        <div class="hero-card">
+          <div class="hero-badge">🏸 全128名を必ず7問で特定！</div>
+          <h1 class="hero-title">バド7問！</h1>
+
+          <div class="hero-visual">
+            <img src="thumbnail.png" alt="バド7問！イラスト" class="hero-thumb-img">
+          </div>
+
+          <p class="hero-desc">
+            7回の質問であなたの考えている<br>バドミントン選手を当てます！<br><br>
+            すきな選手を1人だけ<br>心の中に思い浮かべてね！
+          </p>
+          <div class="hero-notes">
+            <span>※日本代表・S/Jリーグ・世界BWFトップ＆レジェンド（全128名）対応</span>
+          </div>
+
+          <!-- お題ガチャ / 選手ピックアップ -->
+          <div class="prompt-helper-box">
+            <div class="prompt-helper-header">
+              <span class="prompt-helper-title">💡 誰を思い浮かべるか迷ったら…</span>
+              <button type="button" id="btn-draw-target" class="btn-mini-gacha">
+                <span>🎲 お題の選手を1人引く</span>
+              </button>
+            </div>
+            <div id="target-preview-card" class="target-preview-card" style="display: none;">
+              <div class="target-preview-top">
+                <span class="target-preview-label">🎯 今回のお題</span>
+                <button type="button" id="btn-clear-target" class="target-clear-btn" aria-label="お題をクリア">✕ クリア</button>
+              </div>
+              <div id="target-preview-name" class="target-preview-name"></div>
+              <div id="target-preview-meta" class="target-preview-meta"></div>
+              <p id="target-preview-summary" class="target-preview-summary"></p>
+            </div>
+            <div class="sample-chips-row" id="sample-chips-row">
+              <!-- 代表的な選手チップをJSで描画 -->
+            </div>
+          </div>
+
+          <button id="btn-start" class="btn btn-primary btn-large">
+            <span>はじめる！</span>
+          </button>
+
+          <a href="tree/index.html" class="btn-secondary-link" id="top-tree-link">
+            <span>🌳 全質問ツリー＆収録128選手一覧を見る ↗</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- 2. 質問画面 -->
+      <section id="screen-quiz" class="screen">
+        <!-- お題バナー（お題選択時のみ表示） -->
+        <div id="quiz-target-banner" class="quiz-target-banner" style="display: none;">
+          <div class="quiz-target-main">
+            <span class="quiz-target-tag">🎯 お題</span>
+            <strong id="quiz-target-name"></strong>
+            <span id="quiz-target-sub" class="quiz-target-sub"></span>
+          </div>
+        </div>
+
+        <!-- プログレスバー -->
+        <div class="quiz-header">
+          <div class="quiz-step-info">
+            <span class="step-label">質問</span>
+            <span id="quiz-step-num" class="step-current">1</span>
+            <span class="step-total">/ 7</span>
+          </div>
+          <div class="progress-bar-container">
+            <div id="quiz-progress-bar" class="progress-bar-fill" style="width: 14%;"></div>
+          </div>
+        </div>
+
+        <!-- 質問カードエリア -->
+        <div class="card-stage">
+          <div id="question-card" class="question-card">
+            <div class="card-meta">
+              <span id="card-category" class="category-badge">国籍・地域</span>
+              <span id="card-candidates" class="candidates-badge">のこり 128 人</span>
+            </div>
+            <div class="card-body">
+              <p id="card-question-text" class="question-text">質問文がここに表示されます</p>
+            </div>
+            <div class="card-hint-row">
+              <span class="swipe-guide">← はい (Yes) ／ いいえ (No) →</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- アクションボタン -->
+        <div class="quiz-actions">
+          <button id="btn-yes" class="btn btn-yes btn-action">
+            <span class="btn-icon icon-circle"></span>
+            <span class="btn-label">はい</span>
+          </button>
+          <button id="btn-no" class="btn btn-no btn-action">
+            <span class="btn-icon icon-cross"></span>
+            <span class="btn-label">いいえ</span>
+          </button>
+        </div>
+
+        <!-- 戻るボタン -->
+        <div class="quiz-footer">
+          <button id="btn-undo" class="btn-text" disabled>
+            <span>↩ 1つ前の質問に戻る</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 3. 結果画面 -->
+      <section id="screen-result" class="screen">
+        <div class="result-card">
+          <div class="result-badge">🏸 推測完了！</div>
+          <h2 class="result-lead">あなたが思い浮かべていたのは...</h2>
+
+          <div class="pokemon-display player-display">
+            <div id="result-pokemon-id" class="pokemon-id-badge">No.001 🇯🇵 日本</div>
+            <h1 id="result-pokemon-name" class="pokemon-name">選手名</h1>
+            <p id="result-player-en" class="player-en-name">Player Name</p>
+            <div id="result-pokemon-types" class="pokemon-types">
+              <!-- 種目・所属・特徴バッジが動的に入る -->
+            </div>
+            <p id="result-player-summary" class="player-summary-text"></p>
+            <div class="result-links-row">
+              <a id="result-zukan-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-zukan-link">
+                <span>🔍 選手情報を検索で見る ↗</span>
+              </a>
+              <a id="result-tree-link" href="tree/index.html" class="btn-zukan-link">
+                <span>🌳 分岐ツリーで見る</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- フィードバックエリア（初期状態） -->
+          <div id="feedback-initial" class="feedback-block">
+            <p class="feedback-prompt">あたっていましたか？</p>
+            <div class="feedback-buttons">
+              <button id="btn-correct" class="btn btn-yes btn-large">
+                <span>🎉 あってた！</span>
+              </button>
+              <button id="btn-wrong" class="btn btn-subtle btn-large">
+                <span>🤔 違った...</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 「あってた！」選択後のエリア -->
+          <div id="feedback-correct-view" class="feedback-block" style="display: none;">
+            <p class="celebrate-text">やったー！見事7問で特定できました！🏸</p>
+            <div class="share-actions">
+              <button id="btn-share" class="btn btn-share btn-large">
+                <span class="x-icon">𝕏</span>
+                <span>で結果をポストする</span>
+              </button>
+              <button id="btn-restart-from-success" class="btn btn-primary btn-outline">
+                <span>もう一度あそぶ</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 「違った...」選択後のエリア -->
+          <div id="feedback-wrong-view" class="feedback-block" style="display: none;">
+            <p class="apology-text">ざんねん…！<br>本当はどの選手を思い浮かべていましたか？</p>
+            <form id="form-actual-pokemon" class="feedback-form">
+              <input type="text" id="input-actual-pokemon" list="pokemon-list-datalist"
+                placeholder="例：桃田賢斗、山口茜、アクセルセン" required class="input-text" autocomplete="off">
+              <datalist id="pokemon-list-datalist"></datalist>
+              <button type="submit" class="btn btn-primary">
+                <span>答え合わせ</span>
+              </button>
+            </form>
+            <div id="feedback-sent-msg" class="feedback-thanks" style="display:none;">
+              <span>ありがとうございます！本来の質問ルートとあなたの回答を比較しました👇</span>
+            </div>
+            <!-- 答え合わせ：質問ツリー表示エリア -->
+            <div id="actual-tree-container" class="actual-tree-container" style="display: none;"></div>
+            <div class="restart-wrapper">
+              <button id="btn-restart-from-wrong" class="btn btn-primary btn-outline">
+                <span>もう一度あそぶ</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 質問履歴トグル & リスト -->
+          <div class="history-accordion">
+            <button id="btn-toggle-history" class="btn-accordion">
+              <span>これまでの質問と回答を見る（<span id="history-count">0</span>問）</span>
+              <span class="accordion-arrow">▼</span>
+            </button>
+            <div id="history-content" class="history-content" style="display: none;">
+              <ul id="history-list" class="history-list">
+                <!-- 動的に生成 -->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- フッター & ライセンス -->
+    <footer class="app-footer">
+      <p class="footer-license">
+        <strong>バド7問！</strong> — 7回の質問で128人のバドミントン選手を一意に特定するファンメイドWebアプリ<br>
+        Inspired by <a href="https://github.com/maltonn/poke11mon" target="_blank" rel="noopener">ポケ11問！ (poke11mon)</a>
+        ｜ <a href="tree/index.html">全質問ツリー＆選手一覧</a>
+      </p>
+    </footer>
+  </div>
+
+  <!-- 決定木データ読み込み -->
+  <script src="data/tree.js?v=20261122_1"></script>
+  <!-- アプリ本体JS -->
+  <script src="app.js?v=20261122_1"></script>
+</body>
+
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>バド7問！ 全質問ツリー＆収録128選手図鑑</title>
+  <meta name="description" content="バド7問！の全128名のバドミントン選手を特定する決定木構造の可視化・ルート検索・選手図鑑ツールです。">
+  <link rel="icon" type="image/png" href="../icon.png">
+
+  <!-- Google Fonts: Zen Maru Gothic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=20261122_1">
+</head>
+
+<body>
+  <div class="viewer-container">
+    <!-- ヘッダー -->
+    <header class="viewer-header">
+      <div class="brand-area">
+        <a href="../index.html" class="logo-badge">
+          <img src="../icon.png" alt="バド7問！" class="logo-icon">
+          <span>バド7問！</span>
+        </a>
+        <h1 class="page-title">全質問ツリー＆選手図鑑</h1>
+      </div>
+      <a href="../index.html" class="btn-back-game">
+        <span>🎮 クイズをあそぶ</span>
+      </a>
+    </header>
+
+    <!-- 統計サマリーバー -->
+    <section class="stats-grid">
+      <div class="stat-card">
+        <span id="stat-total-pokemon" class="stat-val">128 人</span>
+        <span class="stat-label">収録選手数</span>
+      </div>
+      <div class="stat-card">
+        <span id="stat-max-depth" class="stat-val">7 問</span>
+        <span class="stat-label">最大質問数</span>
+      </div>
+      <div class="stat-card">
+        <span id="stat-avg-depth" class="stat-val">7.0 問</span>
+        <span class="stat-label">平均質問数</span>
+      </div>
+      <div class="stat-card">
+        <span id="stat-total-nodes" class="stat-val">127 問</span>
+        <span class="stat-label">質問分岐ノード</span>
+      </div>
+    </section>
+
+    <!-- タブ切り替えバー -->
+    <nav class="tab-nav">
+      <button class="tab-btn active" data-tab="tab-search">
+        <span>🔍 選手別ルート</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-hierarchy">
+        <span>🌳 全体階層ツリー</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-explorer">
+        <span>🎮 ステップ探索</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-roster">
+        <span>📖 収録128選手一覧</span>
+      </button>
+    </nav>
+
+    <!-- メインコンテンツ -->
+    <main>
+      <!-- ================= 1. 選手別ルート検索 ================= -->
+      <section id="tab-search" class="tab-content active">
+        <div class="panel-card">
+          <h2 class="panel-title">
+            <span>🔍</span>
+            <span>選手別 質問ルート検索</span>
+          </h2>
+          <p class="panel-desc">
+            全128名の中からバドミントン選手名を指定して、最初の質問（Q1）からその選手にたどり着くまでの「はい／いいえ」7問ルートを確認できます。
+          </p>
+
+          <div class="search-form-row">
+            <input type="text" id="pokemon-search-input" list="pokemon-search-datalist"
+              placeholder="選手名を入力（例：桃田賢斗、山口茜、アクセルセン）" class="search-input" autocomplete="off">
+            <datalist id="pokemon-search-datalist"></datalist>
+            <button id="btn-search-pokemon" class="btn btn-primary">
+              <span>ルートを表示</span>
+            </button>
+            <button id="btn-random-pokemon" class="btn btn-subtle">
+              <span>🎲 ランダム</span>
+            </button>
+          </div>
+
+          <!-- 有名選手クイックピック -->
+          <div class="quick-pick-chips">
+            <span class="chip-label">注目選手：</span>
+            <div id="quick-pick-container" style="display: flex; flex-wrap: wrap; gap: 6px;"></div>
+          </div>
+
+          <!-- 結果表示エリア -->
+          <div id="search-result-area"></div>
+        </div>
+      </section>
+
+      <!-- ================= 2. 全体階層ツリー ================= -->
+      <section id="tab-hierarchy" class="tab-content">
+        <div class="panel-card">
+          <h2 class="panel-title">
+            <span>🌳</span>
+            <span>全体階層ツリー（完全二分木エクスプローラー）</span>
+          </h2>
+          <p class="panel-desc">
+            ルートノード（Q1：128人）から葉ノード（各選手）までの深さ7の完全二分決定木です。クリックで各分岐を展開・折りたたみできます。
+          </p>
+
+          <div class="tree-controls">
+            <button id="btn-tree-depth-1" class="btn btn-subtle btn-sm">1階層展開</button>
+            <button id="btn-tree-depth-2" class="btn btn-subtle btn-sm">2階層展開</button>
+            <button id="btn-tree-depth-3" class="btn btn-subtle btn-sm">3階層展開</button>
+            <button id="btn-tree-expand-all" class="btn btn-subtle btn-sm">すべて展開</button>
+            <button id="btn-tree-collapse-all" class="btn btn-subtle btn-sm">すべて閉じる</button>
+            <input type="text" id="tree-filter-input" placeholder="質問文・選手名をキーワード検索..." class="tree-filter-input">
+          </div>
+
+          <div id="tree-hierarchy-container" class="tree-view-container"></div>
+        </div>
+      </section>
+
+      <!-- ================= 3. ステップ探索 ================= -->
+      <section id="tab-explorer" class="tab-content">
+        <div class="panel-card">
+          <h2 class="panel-title">
+            <span>🎮</span>
+            <span>インタラクティブ・ステップ探索</span>
+          </h2>
+          <p class="panel-desc">
+            「はい」「いいえ」を選びながら、候補選手が128人→64人→32人→16人→8人→4人→2人→1人と半減していく様子をリアルタイムに確認できます。
+          </p>
+
+          <div class="explorer-card">
+            <!-- パンくずリスト -->
+            <div id="explorer-breadcrumbs" class="explorer-breadcrumbs"></div>
+
+            <!-- 現在の質問ノード or 葉ノード -->
+            <div id="explorer-card-area"></div>
+          </div>
+
+          <!-- 候補選手一覧セクション -->
+          <div class="candidates-section">
+            <div class="cand-header">
+              <span class="cand-title">絞り込み候補選手</span>
+              <span id="candidates-count-badge" class="step-num-badge">128 人</span>
+            </div>
+            <div id="candidates-grid" class="cand-grid"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 4. 収録128選手一覧 ================= -->
+      <section id="tab-roster" class="tab-content">
+        <div class="panel-card">
+          <h2 class="panel-title">
+            <span>📖</span>
+            <span>収録128選手ずかん</span>
+          </h2>
+          <p class="panel-desc">
+            収録されている日本＆世界のバドミントン選手全128名の一覧です。カードをクリックするとその選手への7問ルートを表示します。
+          </p>
+
+          <div class="roster-filter-bar">
+            <div id="roster-category-chips" class="roster-chips"></div>
+            <input type="text" id="roster-search-input" placeholder="名前・所属チーム・国名・タグで絞り込み..." class="tree-filter-input">
+          </div>
+
+          <div id="roster-grid" class="roster-grid"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- フッター -->
+    <footer class="viewer-footer">
+      <p class="footer-license">
+        <strong>バド7問！</strong> — 7回の質問で128人のバドミントン選手を一意に特定するファンメイドWebアプリ<br>
+        Inspired by <a href="https://github.com/maltonn/poke11mon" target="_blank" rel="noopener">ポケ11問！ (poke11mon)</a>
+        ｜ <a href="../index.html">クイズトップへ戻る</a>
+      </p>
+    </footer>
+  </div>
+
+  <!-- 決定木データ読み込み -->
+  <script src="../data/tree.js?v=20261122_1"></script>
+  <!-- ツリービューアJS -->
+  <script src="tree-viewer.js?v=20261122_1"></script>
+</body>
+
+</html>

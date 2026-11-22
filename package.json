@@ -1,0 +1,15 @@
+{
+  "name": "bado7mon",
+  "version": "1.0.0",
+  "private": true,
+  "description": "バド7問！ - 7回の質問で128人のバドミントン選手を一意に特定するWebアプリ",
+  "type": "module",
+  "scripts": {
+    "build:tree": "node scripts/build-tree.mjs",
+    "build": "node scripts/build-tree.mjs && node scripts/build-dist.mjs",
+    "test": "node --test tests/tree.test.mjs",
+    "verify": "npm run build && npm test",
+    "dev": "python3 -m http.server 8788",
+    "deploy": "npm run build && npx --yes wrangler@latest deploy"
+  }
+}
