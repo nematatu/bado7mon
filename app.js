@@ -1,12 +1,16 @@
 /**
  * バド7問！ (bado7mon) - アプリケーションロジック
- * 7回の質問で128人のバドミントン選手を一意に特定するWebアプリ
+ * 3つのエッセンス融合版：
+ *  1. 128名を必ず7問で特定する完全二分決定木＆分岐答え合わせ
+ *  2. シンプルなUI・カードスタック・ドラッグ物理スワイプ＆祝福アニメーション
+ *  3. リアルタイム候補チラ見・もしも分岐＆途中ジャンプ・結果コピー・発見図鑑コレクション
  */
 
 (function () {
   'use strict';
 
   const MAX_QUESTIONS = 7;
+  const COLLECTION_STORAGE_KEY = 'bado7mon_collection_v1';
   const SAMPLE_PLAYERS = [
     '桃田賢斗',
     '山口茜',
@@ -25,6 +29,7 @@
   let allPlayers = []; // [{ id, name_ja, name_kana, name_en, ... }]
   let selectedTargetPlayer = null;
   let isAnimating = false;
+  let lastCandidatesCount = 128;
 
   // --- DOM要素 ---
   const screens = {
@@ -33,10 +38,14 @@
     result: document.getElementById('screen-result'),
   };
 
+  const confettiLayer = document.getElementById('confetti-layer');
+  const collectionCountText = document.getElementById('collection-count-text');
+
   const btnStart = document.getElementById('btn-start');
   const btnYes = document.getElementById('btn-yes');
   const btnNo = document.getElementById('btn-no');
   const btnUndo = document.getElementById('btn-undo');
+  const btnQuitQuiz = document.getElementById('btn-quit-quiz');
 
   // お題ガチャ要素
   const btnDrawTarget = document.getElementById('btn-draw-target');
@@ -52,11 +61,19 @@
 
   // クイズ画面要素
   const quizStepNum = document.getElementById('quiz-step-num');
+  const stepDots = document.getElementById('step-dots');
   const quizProgressBar = document.getElementById('quiz-progress-bar');
   const questionCard = document.getElementById('question-card');
+  const stampYes = document.getElementById('stamp-yes');
+  const stampNo = document.getElementById('stamp-no');
   const cardCategory = document.getElementById('card-category');
   const cardCandidates = document.getElementById('card-candidates');
   const cardQuestionText = document.getElementById('card-question-text');
+  const btnTogglePeek = document.getElementById('btn-toggle-peek');
+  const btnClosePeek = document.getElementById('btn-close-peek');
+  const candidatesPeekDrawer = document.getElementById('candidates-peek-drawer');
+  const peekDrawerTitle = document.getElementById('peek-drawer-title');
+  const peekCandidatesList = document.getElementById('peek-candidates-list');
 
   // 結果画面要素
   const resultPokemonId = document.getElementById('result-pokemon-id');
@@ -64,6 +81,7 @@
   const resultPlayerEn = document.getElementById('result-player-en');
   const resultPokemonTypes = document.getElementById('result-pokemon-types');
   const resultPlayerSummary = document.getElementById('result-player-summary');
+  const resultEmojiTrack = document.getElementById('result-emoji-track');
   const resultZukanLink = document.getElementById('result-zukan-link');
   const resultTreeLink = document.getElementById('result-tree-link');
   const feedbackInitial = document.getElementById('feedback-initial');
@@ -72,6 +90,8 @@
   const btnCorrect = document.getElementById('btn-correct');
   const btnWrong = document.getElementById('btn-wrong');
   const btnShare = document.getElementById('btn-share');
+  const btnCopyResult = document.getElementById('btn-copy-result');
+  const copyResultLabel = document.getElementById('copy-result-label');
   const btnRestartSuccess = document.getElementById('btn-restart-from-success');
   const btnRestartWrong = document.getElementById('btn-restart-from-wrong');
   const formActualPokemon = document.getElementById('form-actual-pokemon');
@@ -83,6 +103,39 @@
   const historyContent = document.getElementById('history-content');
   const historyList = document.getElementById('history-list');
   const historyCount = document.getElementById('history-count');
+
+  // ==========================================
+  // 図鑑コレクション管理 (LocalStorage)
+  // ==========================================
+  function getCollectedIds() {
+    try {
+      const raw = localStorage.getItem(COLLECTION_STORAGE_KEY);
+      if (!raw) return new Set();
+      const arr = JSON.parse(raw);
+      return new Set(Array.isArray(arr) ? arr : []);
+    } catch {
+      return new Set();
+    }
+  }
+
+  function recordCollectedPlayer(playerId) {
+    if (!playerId) return;
+    try {
+      const set = getCollectedIds();
+      set.add(Number(playerId));
+      localStorage.setItem(COLLECTION_STORAGE_KEY, JSON.stringify([...set]));
+      updateCollectionBadge();
+    } catch {
+      // ignore storage errors
+    }
+  }
+
+  function updateCollectionBadge() {
+    if (!collectionCountText) return;
+    const count = getCollectedIds().size;
+    const total = allPlayers.length || 128;
+    collectionCountText.textContent = `${count}/${total}`;
+  }
 
   // ==========================================
   // 画面遷移
@@ -105,7 +158,7 @@
       treeData = window.TREE_DATA;
     } else {
       try {
-        const res = await fetch('data/tree.json?v=20261122_1');
+        const res = await fetch('data/tree.json?v=20261122_2');
         treeData = await res.json();
       } catch (err) {
         console.error('Failed to load tree data:', err);
@@ -117,6 +170,7 @@
     extractPlayers(treeData);
     populateDatalist();
     renderSampleChips();
+    updateCollectionBadge();
     bindEvents();
   }
 
@@ -136,6 +190,18 @@
     }
     if (node.yes) extractPlayers(node.yes);
     if (node.no) extractPlayers(node.no);
+  }
+
+  function getLeavesUnderNode(node, list = []) {
+    if (!node) return list;
+    if (node.type === 'leaf') {
+      const pl = getPlayerFromLeaf(node);
+      if (pl) list.push(pl);
+      return list;
+    }
+    if (node.yes) getLeavesUnderNode(node.yes, list);
+    if (node.no) getLeavesUnderNode(node.no, list);
+    return list;
   }
 
   function populateDatalist() {
@@ -215,12 +281,16 @@
   }
 
   // ==========================================
-  // ゲーム進行
+  // ゲーム進行 & アニメーション演出
   // ==========================================
   function startGame() {
     historyStack = [];
     currentNode = treeData;
     isAnimating = false;
+    lastCandidatesCount = 128;
+    if (candidatesPeekDrawer) {
+      candidatesPeekDrawer.style.display = 'none';
+    }
     if (quizTargetBanner) {
       quizTargetBanner.style.display = selectedTargetPlayer ? 'flex' : 'none';
     }
@@ -228,9 +298,64 @@
     renderQuestion(currentNode);
   }
 
+  function renderStepDots() {
+    if (!stepDots) return;
+    stepDots.innerHTML = '';
+    for (let i = 0; i < MAX_QUESTIONS; i++) {
+      const dot = document.createElement('span');
+      dot.className = 'step-dot';
+      if (i < historyStack.length) {
+        dot.classList.add(
+          historyStack[i].answer === 'yes' ? 'done-yes' : 'done-no'
+        );
+      } else if (i === historyStack.length) {
+        dot.classList.add('current');
+      }
+      stepDots.appendChild(dot);
+    }
+  }
+
+  function animateCandidatesCount(fromVal, toVal) {
+    if (!cardCandidates || !toVal) return;
+    if (fromVal === toVal) {
+      cardCandidates.textContent = `のこり ${toVal} 人`;
+      return;
+    }
+    const duration = 240;
+    const startTime = performance.now();
+    function tick(now) {
+      const progress = Math.min(1, (now - startTime) / duration);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(fromVal + (toVal - fromVal) * eased);
+      cardCandidates.textContent = `のこり ${current} 人`;
+      if (progress < 1) {
+        requestAnimationFrame(tick);
+      }
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function updatePeekDrawer(node) {
+    if (!peekCandidatesList || !node) return;
+    const leaves = getLeavesUnderNode(node);
+    if (peekDrawerTitle) {
+      peekDrawerTitle.textContent = `現在の候補選手（${leaves.length}人）`;
+    }
+    peekCandidatesList.innerHTML = '';
+    const fragment = document.createDocumentFragment();
+    leaves.forEach((p) => {
+      const chip = document.createElement('span');
+      chip.className = 'peek-player-chip';
+      chip.textContent = `${p.flag || ''} ${p.name_ja.replace(/（.*）/, '')}`;
+      fragment.appendChild(chip);
+    });
+    peekCandidatesList.appendChild(fragment);
+  }
+
   function renderQuestion(node) {
     const stepNum = historyStack.length + 1;
     quizStepNum.textContent = stepNum;
+    renderStepDots();
 
     const pct = Math.min(100, Math.round((stepNum / MAX_QUESTIONS) * 100));
     quizProgressBar.style.width = pct + '%';
@@ -238,12 +363,16 @@
     if (cardCategory) {
       cardCategory.textContent = node.category || '質問';
     }
-    cardCandidates.textContent = node.candidates_count
-      ? `のこり ${node.candidates_count} 人`
-      : '';
+
+    const nextCount = node.candidates_count || 128;
+    animateCandidatesCount(lastCandidatesCount, nextCount);
+    lastCandidatesCount = nextCount;
+
     cardQuestionText.textContent = node.question_text || '';
+    updatePeekDrawer(node);
 
     btnUndo.disabled = historyStack.length === 0;
+    resetCardDragStyle();
     questionCard.className = 'question-card card-enter';
   }
 
@@ -256,6 +385,7 @@
       answer: answer,
     });
 
+    resetCardDragStyle();
     const swipeClass = answer === 'yes' ? 'swipe-left' : 'swipe-right';
     questionCard.className = `question-card ${swipeClass}`;
 
@@ -275,7 +405,7 @@
         renderQuestion(currentNode);
       }
       isAnimating = false;
-    }, 260);
+    }, 250);
   }
 
   function undoLastStep() {
@@ -285,6 +415,43 @@
     renderQuestion(currentNode);
   }
 
+  function jumpToQuestionStep(stepZeroIndexed) {
+    if (isAnimating || stepZeroIndexed < 0 || stepZeroIndexed >= historyStack.length) {
+      return;
+    }
+    const targetEntry = historyStack[stepZeroIndexed];
+    historyStack = historyStack.slice(0, stepZeroIndexed);
+    currentNode = targetEntry.node;
+    showScreen('quiz');
+    renderQuestion(currentNode);
+  }
+
+  // ==========================================
+  // 祝福コンフェッティ演出
+  // ==========================================
+  function fireConfetti() {
+    if (!confettiLayer) return;
+    confettiLayer.innerHTML = '';
+    const colors = ['#FF5A5F', '#3DBE7A', '#4E9BEE', '#FFAA2A', '#F687B3'];
+    for (let i = 0; i < 38; i++) {
+      const piece = document.createElement('div');
+      piece.className = 'confetti-piece';
+      const left = Math.random() * 100;
+      const dx = (Math.random() - 0.5) * 220;
+      const rot = 360 + Math.random() * 720;
+      const delay = Math.random() * 0.25;
+      piece.style.left = `${left}%`;
+      piece.style.backgroundColor = colors[i % colors.length];
+      piece.style.setProperty('--dx', `${dx}px`);
+      piece.style.setProperty('--rot', `${rot}deg`);
+      piece.style.animationDelay = `${delay}s`;
+      confettiLayer.appendChild(piece);
+    }
+    setTimeout(() => {
+      if (confettiLayer) confettiLayer.innerHTML = '';
+    }, 2300);
+  }
+
   // ==========================================
   // 結果画面
   // ==========================================
@@ -292,6 +459,9 @@
     const player = getPlayerFromLeaf(leafNode) || {};
     const name = player.name_ja || '不明な選手';
     const playerId = player.id;
+
+    // 発見コレクションに記録
+    recordCollectedPlayer(playerId);
 
     // UIリセット
     feedbackInitial.style.display = 'block';
@@ -306,6 +476,9 @@
     formActualPokemon.style.display = 'flex';
     historyContent.style.display = 'none';
     btnToggleHistory.classList.remove('accordion-open');
+    if (copyResultLabel) {
+      copyResultLabel.textContent = '📋 結果をコピー';
+    }
 
     // 選手情報表示
     resultPokemonName.textContent = name;
@@ -360,13 +533,39 @@
       resultPlayerSummary.style.display = player.summary ? 'block' : 'none';
     }
 
-    // お題を設定していた場合は入力欄に初期セット
+    // 回答軌跡絵文字バー
+    if (resultEmojiTrack) {
+      const emojis = historyStack
+        .map((h) => (h.answer === 'yes' ? '🟢' : '🔵'))
+        .join('');
+      resultEmojiTrack.textContent = `回答ルート: ${emojis} (${historyStack.length}問)`;
+    }
+
     if (selectedTargetPlayer && inputActualPokemon) {
       inputActualPokemon.value = selectedTargetPlayer.name_ja;
     }
 
     renderHistory();
     showScreen('result');
+  }
+
+  function describeOppositeBranch(questionNode, chosenAnswer) {
+    if (!questionNode) return '';
+    const oppNode = chosenAnswer === 'yes' ? questionNode.no : questionNode.yes;
+    if (!oppNode) return '';
+    const oppLabel = chosenAnswer === 'yes' ? 'いいえ' : 'はい';
+    if (oppNode.type === 'leaf') {
+      const oppPlayer = getPlayerFromLeaf(oppNode);
+      if (oppPlayer) {
+        return `🔄 もし「${oppLabel}」なら → ${oppPlayer.flag || ''} ${oppPlayer.name_ja}`;
+      }
+    }
+    const leaves = getLeavesUnderNode(oppNode);
+    const previewNames = leaves
+      .slice(0, 2)
+      .map((p) => p.name_ja.replace(/（.*）/, ''))
+      .join('・');
+    return `🔄 もし「${oppLabel}」なら → ${previewNames} など${leaves.length}人へ分岐`;
   }
 
   function renderHistory() {
@@ -378,6 +577,9 @@
       li.className = 'history-item';
 
       const isYes = item.answer === 'yes';
+      const mainRow = document.createElement('div');
+      mainRow.className = 'history-item-main';
+
       const badge = document.createElement('span');
       badge.className = `history-badge ${isYes ? 'yes' : 'no'}`;
       badge.textContent = isYes ? 'はい' : 'いいえ';
@@ -386,25 +588,46 @@
       text.className = 'history-q-text';
       text.textContent = `Q${index + 1}. ${item.node.question_text || ''}`;
 
-      li.appendChild(badge);
-      li.appendChild(text);
+      mainRow.appendChild(badge);
+      mainRow.appendChild(text);
+
+      const subRow = document.createElement('div');
+      subRow.className = 'history-item-sub';
+
+      const altHint = document.createElement('span');
+      altHint.className = 'history-alt-hint';
+      altHint.textContent = describeOppositeBranch(item.node, item.answer);
+
+      const jumpBtn = document.createElement('button');
+      jumpBtn.type = 'button';
+      jumpBtn.className = 'btn-jump-step';
+      jumpBtn.textContent = `↩ Q${index + 1}からやり直す`;
+      jumpBtn.addEventListener('click', () => {
+        jumpToQuestionStep(index);
+      });
+
+      subRow.appendChild(altHint);
+      subRow.appendChild(jumpBtn);
+
+      li.appendChild(mainRow);
+      li.appendChild(subRow);
       historyList.appendChild(li);
     });
   }
 
   // ==========================================
-  // フィードバック & シェア
+  // フィードバック & シェア・コピー
   // ==========================================
   function handleCorrect() {
     feedbackInitial.style.display = 'none';
     feedbackCorrectView.style.display = 'block';
+    fireConfetti();
   }
 
   function handleWrong() {
     feedbackInitial.style.display = 'none';
     feedbackWrongView.style.display = 'block';
 
-    // お題が設定されていて推測結果と異なる場合は即座に答え合わせも表示
     if (
       selectedTargetPlayer &&
       selectedTargetPlayer.name_ja !== resultPokemonName.textContent
@@ -681,19 +904,93 @@
       .replace(/'/g, '&#39;');
   }
 
-  function shareResult() {
+  function buildShareSummaryText() {
     const guessedName = resultPokemonName.textContent;
     const count = historyStack.length;
-    const shareText = `【バド7問！🏸】\n${count}回の質問で私が思い浮かべたバドミントン選手「${guessedName}」をピタリと当てられました！\n`;
-    const shareUrl = window.location.origin + window.location.pathname;
+    const emojis = historyStack
+      .map((h) => (h.answer === 'yes' ? '🟢' : '🔵'))
+      .join('');
+    return `【バド7問！🏸】\n${count}回の質問で思い浮かべたバドミントン選手「${guessedName}」をピタリと当てられました！\nルート: ${emojis}`;
+  }
+
+  function shareResult() {
+    const shareText = buildShareSummaryText() + '\n';
+    const shareUrl = 'https://nematatu.github.io/bado7mon/';
     const hashtags = 'バド7問,バドミントン';
 
     const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}&hashtags=${encodeURIComponent(hashtags)}`;
     window.open(twitterUrl, '_blank', 'noopener,noreferrer');
   }
 
+  async function copyResultToClipboard() {
+    const text = `${buildShareSummaryText()}\nhttps://nematatu.github.io/bado7mon/`;
+    try {
+      await navigator.clipboard.writeText(text);
+      if (copyResultLabel) {
+        copyResultLabel.textContent = '✅ コピーしました！';
+      }
+    } catch {
+      if (copyResultLabel) {
+        copyResultLabel.textContent = 'コピー完了';
+      }
+    }
+  }
+
   // ==========================================
-  // イベント登録（タッチスワイプ＆キーボード対応）
+  // インタラクティブ・カードドラッグ物理スワイプ
+  // ==========================================
+  let dragStartX = null;
+  let dragCurrentX = 0;
+
+  function resetCardDragStyle() {
+    questionCard.style.transform = '';
+    questionCard.style.transition = '';
+    if (stampYes) stampYes.style.opacity = '0';
+    if (stampNo) stampNo.style.opacity = '0';
+  }
+
+  function onPointerDown(clientX, targetEl) {
+    if (isAnimating) return;
+    if (targetEl && targetEl.closest('button')) return;
+    dragStartX = clientX;
+    dragCurrentX = 0;
+    questionCard.style.transition = 'none';
+  }
+
+  function onPointerMove(clientX) {
+    if (dragStartX === null || isAnimating) return;
+    dragCurrentX = clientX - dragStartX;
+    const rotate = dragCurrentX * 0.08;
+    questionCard.style.transform = `translate3d(${dragCurrentX}px, 0, 0) rotate(${rotate}deg)`;
+
+    const ratio = Math.min(1, Math.abs(dragCurrentX) / 85);
+    if (dragCurrentX < -15) {
+      if (stampYes) stampYes.style.opacity = String(ratio);
+      if (stampNo) stampNo.style.opacity = '0';
+    } else if (dragCurrentX > 15) {
+      if (stampNo) stampNo.style.opacity = String(ratio);
+      if (stampYes) stampYes.style.opacity = '0';
+    } else {
+      if (stampYes) stampYes.style.opacity = '0';
+      if (stampNo) stampNo.style.opacity = '0';
+    }
+  }
+
+  function onPointerEnd() {
+    if (dragStartX === null) return;
+    const dx = dragCurrentX;
+    dragStartX = null;
+    dragCurrentX = 0;
+
+    if (Math.abs(dx) > 75) {
+      handleAnswer(dx < 0 ? 'yes' : 'no');
+    } else {
+      resetCardDragStyle();
+    }
+  }
+
+  // ==========================================
+  // イベント登録
   // ==========================================
   function bindEvents() {
     btnStart.addEventListener('click', startGame);
@@ -708,30 +1005,51 @@
     btnYes.addEventListener('click', () => handleAnswer('yes'));
     btnNo.addEventListener('click', () => handleAnswer('no'));
     btnUndo.addEventListener('click', undoLastStep);
+    if (btnQuitQuiz) {
+      btnQuitQuiz.addEventListener('click', () => showScreen('top'));
+    }
 
-    // タッチスワイプ操作（左スワイプ: はい / 右スワイプ: いいえ）
-    let touchStartX = null;
+    if (btnTogglePeek && candidatesPeekDrawer) {
+      btnTogglePeek.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isHidden = candidatesPeekDrawer.style.display === 'none';
+        candidatesPeekDrawer.style.display = isHidden ? 'block' : 'none';
+      });
+    }
+    if (btnClosePeek && candidatesPeekDrawer) {
+      btnClosePeek.addEventListener('click', () => {
+        candidatesPeekDrawer.style.display = 'none';
+      });
+    }
+
+    // タッチ＆マウスドラッグスワイプ
     questionCard.addEventListener(
       'touchstart',
       (e) => {
         if (e.touches && e.touches.length === 1) {
-          touchStartX = e.touches[0].clientX;
+          onPointerDown(e.touches[0].clientX, e.target);
         }
       },
       { passive: true }
     );
     questionCard.addEventListener(
-      'touchend',
+      'touchmove',
       (e) => {
-        if (touchStartX === null || !e.changedTouches || e.changedTouches.length === 0) return;
-        const dx = e.changedTouches[0].clientX - touchStartX;
-        touchStartX = null;
-        if (Math.abs(dx) > 65) {
-          handleAnswer(dx < 0 ? 'yes' : 'no');
+        if (e.touches && e.touches.length === 1) {
+          onPointerMove(e.touches[0].clientX);
         }
       },
       { passive: true }
     );
+    questionCard.addEventListener('touchend', onPointerEnd, { passive: true });
+
+    questionCard.addEventListener('mousedown', (e) => {
+      onPointerDown(e.clientX, e.target);
+    });
+    window.addEventListener('mousemove', (e) => {
+      onPointerMove(e.clientX);
+    });
+    window.addEventListener('mouseup', onPointerEnd);
 
     // キーボードショートカット（←/Y: はい, →/N: いいえ, Z/Backspace: 戻る）
     window.addEventListener('keydown', (e) => {
@@ -749,6 +1067,9 @@
     btnWrong.addEventListener('click', handleWrong);
     formActualPokemon.addEventListener('submit', submitActualPokemon);
     btnShare.addEventListener('click', shareResult);
+    if (btnCopyResult) {
+      btnCopyResult.addEventListener('click', copyResultToClipboard);
+    }
 
     btnRestartSuccess.addEventListener('click', () => showScreen('top'));
     btnRestartWrong.addEventListener('click', () => showScreen('top'));

@@ -103,6 +103,25 @@
     // 選手ずかん初期化
     renderRosterFilters();
     renderRosterGrid();
+
+    // URLハッシュ (#tab-roster など) が指定されていれば該当タブを開く
+    if (window.location.hash) {
+      const hashTab = window.location.hash.replace('#', '');
+      if (document.getElementById(hashTab)) {
+        switchTab(hashTab);
+      }
+    }
+  }
+
+  function getCollectedIds() {
+    try {
+      const raw = localStorage.getItem('bado7mon_collection_v1');
+      if (!raw) return new Set();
+      const arr = JSON.parse(raw);
+      return new Set(Array.isArray(arr) ? arr : []);
+    } catch {
+      return new Set();
+    }
   }
 
   function getPlayerFromLeaf(node) {
@@ -618,6 +637,7 @@
   // ==========================================
   const ROSTER_FILTERS = [
     { id: 'ALL', label: 'すべて (128)' },
+    { id: 'DISCOVERED', label: '✨ 発見済み' },
     { id: 'JP', label: '🇯🇵 日本選手 (64)' },
     { id: 'INTL', label: '🌍 海外選手 (64)' },
     { id: 'MS', label: '男子シングルス' },
@@ -629,12 +649,14 @@
 
   function renderRosterFilters() {
     if (!rosterCategoryChips) return;
+    const collected = getCollectedIds();
     rosterCategoryChips.innerHTML = '';
     ROSTER_FILTERS.forEach((f) => {
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = `chip-btn ${activeRosterCategory === f.id ? 'active' : ''}`;
-      btn.textContent = f.label;
+      btn.textContent =
+        f.id === 'DISCOVERED' ? `✨ 発見済み (${collected.size})` : f.label;
       btn.addEventListener('click', () => {
         activeRosterCategory = f.id;
         renderRosterFilters();
@@ -646,12 +668,15 @@
 
   function renderRosterGrid() {
     if (!rosterGrid) return;
+    const collected = getCollectedIds();
     const kw = (rosterSearchInput ? rosterSearchInput.value : '')
       .trim()
       .toLowerCase();
     const kwHira = toHiragana(kw);
 
     const filtered = allPlayerList.filter((p) => {
+      if (activeRosterCategory === 'DISCOVERED' && !collected.has(p.id))
+        return false;
       if (activeRosterCategory === 'JP' && p.country !== '日本') return false;
       if (activeRosterCategory === 'INTL' && p.country === '日本') return false;
       if (
@@ -683,12 +708,13 @@
     const fragment = document.createDocumentFragment();
 
     filtered.forEach((p) => {
+      const isDiscovered = collected.has(p.id);
       const card = document.createElement('div');
-      card.className = 'roster-player-card';
+      card.className = `roster-player-card ${isDiscovered ? 'is-discovered' : ''}`;
       const paddedId = String(p.id).padStart(3, '0');
       card.innerHTML = `
         <div class="roster-card-top">
-          <span>No.${paddedId}</span>
+          <span>No.${paddedId} ${isDiscovered ? '<span class="discovered-badge">✨ 発見済</span>' : ''}</span>
           <span>${escapeHtml(p.flag || '')} ${escapeHtml(p.country || '')}</span>
         </div>
         <div class="roster-card-name">${escapeHtml(p.name_ja)}</div>

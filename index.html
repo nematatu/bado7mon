@@ -28,10 +28,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20261122_1">
+  <link rel="stylesheet" href="style.css?v=20261122_2">
 </head>
 
 <body>
+  <!-- 祝福コンフェッティ用レイヤー -->
+  <div id="confetti-layer" class="confetti-layer" aria-hidden="true"></div>
+
   <div class="app-container">
     <!-- ヘッダー -->
     <header class="app-header">
@@ -39,60 +42,62 @@
         <img src="icon.png" alt="バド7問！" class="logo-icon">
         <span class="logo-text">バド7問！</span>
       </a>
-      <a href="tree/index.html" class="header-tree-link" id="header-tree-link">
-        <span>🌳 全質問ツリー</span>
-      </a>
+      <div class="header-right">
+        <a href="tree/index.html#tab-roster" class="collection-pill" id="header-collection-pill" title="発見した選手コレクション">
+          <span>📖 図鑑</span>
+          <strong id="collection-count-text">0/128</strong>
+        </a>
+        <a href="tree/index.html" class="header-tree-link" id="header-tree-link">
+          <span>🌳 質問ツリー</span>
+        </a>
+      </div>
     </header>
 
     <!-- メインコンテンツ -->
     <main class="app-main">
-      <!-- 1. TOP画面 -->
+      <!-- 1. TOP画面（シンプル＆アニメーション重視） -->
       <section id="screen-top" class="screen active">
         <div class="hero-card">
-          <div class="hero-badge">🏸 全128名を必ず7問で特定！</div>
-          <h1 class="hero-title">バド7問！</h1>
-
-          <div class="hero-visual">
-            <img src="thumbnail.png" alt="バド7問！イラスト" class="hero-thumb-img">
+          <div class="floating-shuttle-wrap" aria-hidden="true">
+            <img src="icon.png" alt="" class="floating-shuttle-icon">
           </div>
 
+          <div class="hero-badge">🏸 全128名を必ず7問で特定</div>
+          <h1 class="hero-title">バド7問！</h1>
+
           <p class="hero-desc">
-            7回の質問であなたの考えている<br>バドミントン選手を当てます！<br><br>
+            7回の質問であなたの考えている<br>バドミントン選手をピタリと当てます。<br><br>
             すきな選手を1人だけ<br>心の中に思い浮かべてね！
           </p>
           <div class="hero-notes">
-            <span>※日本代表・S/Jリーグ・世界BWFトップ＆レジェンド（全128名）対応</span>
+            <span>日本代表・S/Jリーグ・BWF世界トップ＆レジェンド対応</span>
           </div>
 
-          <!-- お題ガチャ / 選手ピックアップ -->
-          <div class="prompt-helper-box">
-            <div class="prompt-helper-header">
-              <span class="prompt-helper-title">💡 誰を思い浮かべるか迷ったら…</span>
-              <button type="button" id="btn-draw-target" class="btn-mini-gacha">
-                <span>🎲 お題の選手を1人引く</span>
-              </button>
-            </div>
-            <div id="target-preview-card" class="target-preview-card" style="display: none;">
-              <div class="target-preview-top">
-                <span class="target-preview-label">🎯 今回のお題</span>
-                <button type="button" id="btn-clear-target" class="target-clear-btn" aria-label="お題をクリア">✕ クリア</button>
-              </div>
-              <div id="target-preview-name" class="target-preview-name"></div>
-              <div id="target-preview-meta" class="target-preview-meta"></div>
-              <p id="target-preview-summary" class="target-preview-summary"></p>
-            </div>
-            <div class="sample-chips-row" id="sample-chips-row">
-              <!-- 代表的な選手チップをJSで描画 -->
-            </div>
-          </div>
-
-          <button id="btn-start" class="btn btn-primary btn-large">
+          <button id="btn-start" class="btn btn-primary btn-large btn-pulse">
             <span>はじめる！</span>
           </button>
 
-          <a href="tree/index.html" class="btn-secondary-link" id="top-tree-link">
-            <span>🌳 全質問ツリー＆収録128選手一覧を見る ↗</span>
-          </a>
+          <!-- シンプルな折りたたみ式お題ガチャ -->
+          <div class="top-sub-tools">
+            <button type="button" id="btn-draw-target" class="btn-tool-pill">
+              <span>🎲 お題の選手をランダムに引く</span>
+            </button>
+            <a href="tree/index.html" class="btn-tool-pill" id="top-tree-link">
+              <span>🌳 全質問ツリー・128選手一覧</span>
+            </a>
+          </div>
+
+          <!-- お題を引いたときだけ開くコンパクトカード -->
+          <div id="target-preview-card" class="target-preview-card" style="display: none;">
+            <div class="target-preview-top">
+              <span class="target-preview-label">🎯 今回のお題（この選手を思い浮かべてね）</span>
+              <button type="button" id="btn-clear-target" class="target-clear-btn" aria-label="お題をクリア">✕ 閉じる</button>
+            </div>
+            <div id="target-preview-name" class="target-preview-name"></div>
+            <div id="target-preview-meta" class="target-preview-meta"></div>
+            <p id="target-preview-summary" class="target-preview-summary"></p>
+            <div class="sample-chips-row" id="sample-chips-row"></div>
+          </div>
         </div>
       </section>
 
@@ -107,32 +112,58 @@
           </div>
         </div>
 
-        <!-- プログレスバー -->
+        <!-- ステップ＆プログレスバー -->
         <div class="quiz-header">
-          <div class="quiz-step-info">
-            <span class="step-label">質問</span>
-            <span id="quiz-step-num" class="step-current">1</span>
-            <span class="step-total">/ 7</span>
+          <div class="quiz-step-row">
+            <div class="quiz-step-info">
+              <span class="step-label">Q</span>
+              <span id="quiz-step-num" class="step-current">1</span>
+              <span class="step-total">/ 7</span>
+            </div>
+            <!-- 7ステップのドットインジケーター -->
+            <div id="step-dots" class="step-dots" aria-hidden="true"></div>
           </div>
           <div class="progress-bar-container">
             <div id="quiz-progress-bar" class="progress-bar-fill" style="width: 14%;"></div>
           </div>
         </div>
 
-        <!-- 質問カードエリア -->
+        <!-- 質問カードステージ（重ねカード演出＋ドラッグスワイプ対応） -->
         <div class="card-stage">
+          <div class="card-stack-bg card-stack-bg-2" aria-hidden="true"></div>
+          <div class="card-stack-bg card-stack-bg-1" aria-hidden="true"></div>
+
           <div id="question-card" class="question-card">
+            <!-- ドラッグ時の YES / NO スタンプオーバーレイ -->
+            <div id="stamp-yes" class="card-stamp stamp-yes" aria-hidden="true">⭕ はい</div>
+            <div id="stamp-no" class="card-stamp stamp-no" aria-hidden="true">❌ いいえ</div>
+
             <div class="card-meta">
               <span id="card-category" class="category-badge">国籍・地域</span>
-              <span id="card-candidates" class="candidates-badge">のこり 128 人</span>
+              <button type="button" id="btn-toggle-peek" class="candidates-badge candidates-btn"
+                title="クリックで現在の候補選手を表示">
+                <span id="card-candidates">のこり 128 人</span>
+                <span class="peek-icon">👀</span>
+              </button>
             </div>
+
             <div class="card-body">
               <p id="card-question-text" class="question-text">質問文がここに表示されます</p>
             </div>
+
             <div class="card-hint-row">
               <span class="swipe-guide">← はい (Yes) ／ いいえ (No) →</span>
             </div>
           </div>
+        </div>
+
+        <!-- リアルタイム残り候補選手チラ見ドロワー（Codex的機能性） -->
+        <div id="candidates-peek-drawer" class="candidates-peek-drawer" style="display: none;">
+          <div class="peek-drawer-header">
+            <span id="peek-drawer-title" class="peek-drawer-title">現在の候補選手（128人）</span>
+            <button type="button" id="btn-close-peek" class="target-clear-btn">✕ 閉じる</button>
+          </div>
+          <div id="peek-candidates-list" class="peek-candidates-list"></div>
         </div>
 
         <!-- アクションボタン -->
@@ -147,10 +178,13 @@
           </button>
         </div>
 
-        <!-- 戻るボタン -->
+        <!-- 戻る・リセットフッター -->
         <div class="quiz-footer">
           <button id="btn-undo" class="btn-text" disabled>
             <span>↩ 1つ前の質問に戻る</span>
+          </button>
+          <button id="btn-quit-quiz" class="btn-text">
+            <span>🏠 トップへ戻る</span>
           </button>
         </div>
       </section>
@@ -169,9 +203,13 @@
               <!-- 種目・所属・特徴バッジが動的に入る -->
             </div>
             <p id="result-player-summary" class="player-summary-text"></p>
+
+            <!-- 回答ルート絵文字バー -->
+            <div id="result-emoji-track" class="result-emoji-track" title="7問の回答軌跡"></div>
+
             <div class="result-links-row">
               <a id="result-zukan-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-zukan-link">
-                <span>🔍 選手情報を検索で見る ↗</span>
+                <span>🔍 選手情報を検索 ↗</span>
               </a>
               <a id="result-tree-link" href="tree/index.html" class="btn-zukan-link">
                 <span>🌳 分岐ツリーで見る</span>
@@ -196,10 +234,15 @@
           <div id="feedback-correct-view" class="feedback-block" style="display: none;">
             <p class="celebrate-text">やったー！見事7問で特定できました！🏸</p>
             <div class="share-actions">
-              <button id="btn-share" class="btn btn-share btn-large">
-                <span class="x-icon">𝕏</span>
-                <span>で結果をポストする</span>
-              </button>
+              <div class="share-row-split">
+                <button id="btn-share" class="btn btn-share">
+                  <span class="x-icon">𝕏</span>
+                  <span>でポストする</span>
+                </button>
+                <button id="btn-copy-result" class="btn btn-subtle">
+                  <span id="copy-result-label">📋 結果をコピー</span>
+                </button>
+              </div>
               <button id="btn-restart-from-success" class="btn btn-primary btn-outline">
                 <span>もう一度あそぶ</span>
               </button>
@@ -218,7 +261,7 @@
               </button>
             </form>
             <div id="feedback-sent-msg" class="feedback-thanks" style="display:none;">
-              <span>ありがとうございます！本来の質問ルートとあなたの回答を比較しました👇</span>
+              <span>本来の質問ルートとあなたの回答を比較しました👇</span>
             </div>
             <!-- 答え合わせ：質問ツリー表示エリア -->
             <div id="actual-tree-container" class="actual-tree-container" style="display: none;"></div>
@@ -229,13 +272,14 @@
             </div>
           </div>
 
-          <!-- 質問履歴トグル & リスト -->
+          <!-- 質問履歴トグル & リスト（「もし逆を選んでいたら？」＆「ここからやり直す」付き） -->
           <div class="history-accordion">
             <button id="btn-toggle-history" class="btn-accordion">
-              <span>これまでの質問と回答を見る（<span id="history-count">0</span>問）</span>
+              <span>これまでの質問と回答・別分岐を見る（<span id="history-count">0</span>問）</span>
               <span class="accordion-arrow">▼</span>
             </button>
             <div id="history-content" class="history-content" style="display: none;">
+              <p class="history-helper-note">💡 各質問の「↩ ここからやり直す」を押すとその質問に戻れます。</p>
               <ul id="history-list" class="history-list">
                 <!-- 動的に生成 -->
               </ul>
@@ -256,9 +300,9 @@
   </div>
 
   <!-- 決定木データ読み込み -->
-  <script src="data/tree.js?v=20261122_1"></script>
+  <script src="data/tree.js?v=20261122_2"></script>
   <!-- アプリ本体JS -->
-  <script src="app.js?v=20261122_1"></script>
+  <script src="app.js?v=20261122_2"></script>
 </body>
 
 </html>

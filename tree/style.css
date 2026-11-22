@@ -818,6 +818,20 @@ body {
   color: var(--text-muted);
 }
 
+.roster-player-card.is-discovered {
+  border-color: #9AE6B4;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F7FFF9 100%);
+}
+
+.discovered-badge {
+  font-size: 0.68rem;
+  font-weight: 900;
+  color: #22543D;
+  background: #C6F6D5;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+}
+
 .roster-card-name {
   font-size: 1.1rem;
   font-weight: 900;
