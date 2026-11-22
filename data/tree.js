@@ -30,7 +30,7 @@ window.TREE_DATA = {
         "type": "question",
         "depth": 3,
         "question_id": "jp_ms_tier",
-        "question_text": "オリンピック出場経験がある、または全日本総合選手権（一般）の男子シングルス優勝経験がありますか？",
+        "question_text": "オリンピックへの出場経験がある、または全日本総合選手権（一般）の男子シングルスで優勝した経験がありますか？",
         "tier": 2,
         "category": "実績・タイトル",
         "candidates_count": 16,
@@ -39,7 +39,7 @@ window.TREE_DATA = {
           "type": "question",
           "depth": 4,
           "question_id": "jp_ms_ntt",
-          "question_text": "所属（または現役時の主所属）が「NTT東日本」の選手ですか？",
+          "question_text": "所属チーム（または現役時の主所属）は「NTT東日本」ですか？",
           "tier": 2,
           "category": "所属チーム",
           "candidates_count": 8,
@@ -48,7 +48,7 @@ window.TREE_DATA = {
             "type": "question",
             "depth": 5,
             "question_id": "jp_ms_ntt_world_medal",
-            "question_text": "世界選手権のメダル獲得および世界ランキングTOP2入りを達成していますか？",
+            "question_text": "世界選手権でメダルを獲得し、世界ランキングでもトップ2以内に入ったことがありますか？",
             "tier": 3,
             "category": "実績・世界ランク",
             "candidates_count": 4,
@@ -57,7 +57,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "jp_ms_momota_vs_naraoka",
-              "question_text": "サウスポー（左利き）で、世界選手権2連覇・年間11勝のギネス記録を持つ選手ですか？",
+              "question_text": "サウスポー（左利き）で、世界選手権2連覇および年間11勝のギネス世界記録を達成していますか？",
               "tier": 3,
               "category": "利き手・実績",
               "candidates_count": 2,
@@ -137,7 +137,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "jp_ms_tanaka_vs_tago",
-              "question_text": "1999年生まれの現役S/Jリーガーで、2024年全日本総合優勝・BWFツアー優勝を飾った選手ですか？",
+              "question_text": "大学（日本大学）を経て実業団入りし、2020年代の現在も現役S/JリーガーとしてBWFツアーや全日本総合で優勝していますか？",
               "tier": 3,
               "category": "世代・現役",
               "candidates_count": 2,
@@ -218,7 +218,7 @@ window.TREE_DATA = {
             "type": "question",
             "depth": 5,
             "question_id": "jp_ms_tonami",
-            "question_text": "所属（または現役時の所属）が「トナミ運輸」の選手ですか？",
+            "question_text": "所属チーム（または現役時の主所属）は「トナミ運輸」ですか？",
             "tier": 3,
             "category": "所属チーム",
             "candidates_count": 4,
@@ -227,7 +227,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "jp_ms_sasaki_vs_tsuneyama",
-              "question_text": "サウスポー（左利き）で、2012年ロンドン五輪ベスト8・2016年リオ五輪出場のレジェンドですか？",
+              "question_text": "サウスポー（左利き）で、2012年ロンドン五輪ベスト8・2016年リオ五輪連続出場のレジェンド世代ですか？",
               "tier": 3,
               "category": "利き手・五輪",
               "candidates_count": 2,
@@ -307,9 +307,9 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "jp_ms_nishimoto_vs_watanabe",
-              "question_text": "180cmの長身で、ジャパンオープン初優勝や2024年パリ五輪出場を果たした「ジェイテクト」所属の選手ですか？",
+              "question_text": "180cmの長身で、大学（中央大学）を経て実業団入りし、ジャパンオープン初優勝や2024年パリ五輪出場を果たしていますか？（※高校卒業後に直接BIPROGYへ加入した選手なら「いいえ」）",
               "tier": 3,
-              "category": "所属・特徴",
+              "category": "所属・経歴",
               "candidates_count": 2,
               "yes": {
                 "node_id": 18,
@@ -389,7 +389,7 @@ window.TREE_DATA = {
           "type": "question",
           "depth": 4,
           "question_id": "jp_ms_next_team",
-          "question_text": "「トナミ運輸」または「ジェイテクト」に所属する社会人選手ですか？",
+          "question_text": "「トナミ運輸」または「ジェイテクト」に所属している社会人選手ですか？",
           "tier": 2,
           "category": "所属チーム",
           "candidates_count": 8,
@@ -398,7 +398,7 @@ window.TREE_DATA = {
             "type": "question",
             "depth": 5,
             "question_id": "jp_ms_next_b100_winner",
-            "question_text": "BWF Super 100ツアー（ベトナムオープン等）で優勝経験があるトナミ運輸の選手（高橋洸士・大林拓真）ですか？",
+            "question_text": "BWFワールドツアー（Super 100のベトナムオープン等）で国際大会の男子シングルス優勝経験がありますか？",
             "tier": 3,
             "category": "実績・タイトル",
             "candidates_count": 4,
@@ -407,9 +407,9 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "jp_ms_takahashi_vs_obayashi",
-              "question_text": "サウスポー（左利き）で、2001年生まれ（東大阪大柏原高出身）の選手ですか？",
+              "question_text": "サウスポー（左利き）で、高校（東大阪大柏原高）卒業後に直接「トナミ運輸」へ加入しましたか？（※右利きで早稲田大学を経て加入した選手なら「いいえ」）",
               "tier": 3,
-              "category": "利き手・出身",
+              "category": "利き手・経歴",
               "candidates_count": 2,
               "yes": {
                 "node_id": 23,
@@ -487,7 +487,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "jp_ms_hatano_vs_ogawa",
-              "question_text": "「トナミ運輸」所属（埼玉栄高から高卒入社）の選手ですか？（※ジェイテクト所属・法政大出身なら「いいえ」）",
+              "question_text": "「トナミ運輸」に所属（埼玉栄高校から高卒加入）していますか？（※法政大学を経て「ジェイテクト」に所属する選手なら「いいえ」）",
               "tier": 3,
               "category": "所属チーム",
               "candidates_count": 2,
@@ -568,7 +568,7 @@ window.TREE_DATA = {
             "type": "question",
             "depth": 5,
             "question_id": "jp_ms_next_ntt_group",
-            "question_text": "「NTT東日本」に所属（または在籍経験）がある選手（古賀穂・武井凜生）ですか？",
+            "question_text": "「NTT東日本」に所属（または過去に在籍）していましたか？",
             "tier": 3,
             "category": "所属・経歴",
             "candidates_count": 4,
@@ -577,9 +577,9 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "jp_ms_koga_vs_takei",
-              "question_text": "1996年生まれ（早稲田大出身・古賀輝選手の弟）の選手ですか？（※2003年生まれ・ふたば未来学園出身なら「いいえ」）",
+              "question_text": "1990年代生まれ（1996年生まれ）で、早稲田大学を卒業して実業団入りしましたか？（※2000年代生まれでふたば未来学園高から高卒加入した選手なら「いいえ」）",
               "tier": 3,
-              "category": "世代・特徴",
+              "category": "世代・出身",
               "candidates_count": 2,
               "yes": {
                 "node_id": 30,
@@ -602,7 +602,7 @@ window.TREE_DATA = {
                     "古賀兄弟",
                     "国際大会優勝"
                   ],
-                  "summary": "早稲田大学・NTT東日本を経て国際大会に精力的に参戦。ダブルス日本代表・古賀輝の弟としても知られる粘り強いファイター。"
+                  "summary": "早稲田大学・NTT東日本を経て国際大会に精力的に参戦。粘り強いラリーと闘志あふれるプレーで知られるファイター。"
                 },
                 "pokemon": {
                   "id": 13,
@@ -657,7 +657,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "jp_ms_okimoto_vs_miyashita",
-              "question_text": "「BIPROGY」所属（埼玉栄高出身）のサウスポー選手ですか？（※明治大学所属の学生トップ選手なら「いいえ」）",
+              "question_text": "サウスポー（左利き）で、高校卒業後に「BIPROGY」へ加入した社会人選手ですか？（※右利きで明治大学に所属する学生トップ選手なら「いいえ」）",
               "tier": 3,
               "category": "所属・利き手",
               "candidates_count": 2,
@@ -740,7 +740,7 @@ window.TREE_DATA = {
         "type": "question",
         "depth": 3,
         "question_id": "jp_md_world_medal_era",
-        "question_text": "オリンピック・世界選手権のメダリスト、または全英オープン・BWF Super 500以上の優勝経験があるペアの選手（保木・小林・渡辺・緑川・遠藤・早川・園田・嘉村）ですか？",
+        "question_text": "オリンピック・世界選手権でのメダル獲得、または全英オープン・BWF Super 500以上のツアー上位大会で優勝した経験がありますか？",
         "tier": 2,
         "category": "実績・タイトル",
         "candidates_count": 16,
@@ -749,7 +749,7 @@ window.TREE_DATA = {
           "type": "question",
           "depth": 4,
           "question_id": "jp_md_tonami_pairs",
-          "question_text": "「トナミ運輸」所属の男子ダブルス黄金ペア（ホキコバ：保木・小林 ／ ソノカム：園田・嘉村）の選手ですか？",
+          "question_text": "所属チーム（または現役時の主所属）は「トナミ運輸」ですか？",
           "tier": 2,
           "category": "所属チーム",
           "candidates_count": 8,
@@ -758,18 +758,18 @@ window.TREE_DATA = {
             "type": "question",
             "depth": 5,
             "question_id": "jp_md_hokikoba_vs_sonokamu",
-            "question_text": "2021年世界選手権優勝・世界ランキング1位を達成した「ホキコバ（保木卓朗・小林優吾）」ペアのどちらかですか？",
+            "question_text": "2021年の世界選手権で日本男子ダブルス史上初の「優勝（金メダル）」および世界ランキング1位を達成したペアの選手ですか？",
             "tier": 3,
-            "category": "ペア愛称・実績",
+            "category": "実績・世界王者",
             "candidates_count": 4,
             "yes": {
               "node_id": 38,
               "type": "question",
               "depth": 6,
               "question_id": "jp_md_hoki_vs_kobayashi",
-              "question_text": "サウスポー（左利き）で、後衛からの豪快な強打を最大の武器とする選手ですか？",
+              "question_text": "サウスポー（左利き）で、主に後衛からの豪快なジャンピングスマッシュを最大の武器とする選手ですか？",
               "tier": 3,
-              "category": "利き手・プレースタイル",
+              "category": "利き手・役割",
               "candidates_count": 2,
               "yes": {
                 "node_id": 39,
@@ -847,7 +847,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "jp_md_sonoda_vs_kamura",
-              "question_text": "低空高速ドライブと後衛からの連続アタックを持ち味とし、現在もトナミ運輸でプレーを続ける選手ですか？（※前衛で「ソノカム」を引っ張った相方なら「いいえ」）",
+              "question_text": "主に後衛からの連続アタックと超高速ドライブを担い、東京五輪後もトナミ運輸で現役プレーヤーとして活動を続けている選手ですか？（※前衛を主戦場とし東京五輪後に現役を引退した相方なら「いいえ」）",
               "tier": 3,
               "category": "役割・現役状況",
               "candidates_count": 2,
@@ -928,7 +928,7 @@ window.TREE_DATA = {
             "type": "question",
             "depth": 5,
             "question_id": "jp_md_xd_focus",
-            "question_text": "混合ダブルス（XD）の日本代表エースとして五輪や世界ツアーを沸かせている現役選手（渡辺勇大・緑川大輝）ですか？",
+            "question_text": "混合ダブルス（XD）を主力種目として、2025〜2026年現在も現役で世界ツアーを戦っている選手ですか？",
             "tier": 3,
             "category": "主戦場・種目",
             "candidates_count": 4,
@@ -937,7 +937,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "jp_md_watanabe_vs_midorikawa",
-              "question_text": "サウスポー（左利き）で、オリンピック混合ダブルス2大会連続銅メダル（ワタガシ）＆男子ダブルス全英OP2連覇を達成した選手ですか？",
+              "question_text": "サウスポー（左利き）で、オリンピックの混合ダブルスで2大会連続の銅メダルおよび全英オープン優勝を達成している選手ですか？",
               "tier": 3,
               "category": "利き手・五輪メダル",
               "candidates_count": 2,
@@ -1017,9 +1017,9 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "jp_md_endo_vs_hayakawa",
-              "question_text": "早川賢一選手とのペアに続き、渡辺勇大選手とのペアで全英オープン男子ダブルス2連覇を達成した「鉄壁レシーブ」の選手ですか？",
+              "question_text": "2020年・2021年の全英オープン男子ダブルスで2連覇を達成し、リオ五輪に続いて2021年東京五輪にも出場した「鉄壁レシーブ」の選手ですか？",
               "tier": 3,
-              "category": "実績・ペア歴",
+              "category": "実績・五輪",
               "candidates_count": 2,
               "yes": {
                 "node_id": 49,
@@ -1077,7 +1077,7 @@ window.TREE_DATA = {
                     "2014トマス杯優勝",
                     "リオ五輪8強"
                   ],
-                  "summary": "遠藤大由との「エンハヤ」ペアで全英OP準優勝3度・2014年トマス杯初優勝・リオ五輪ベスト8に輝いた日本MDの開拓者。"
+                  "summary": "遠藤大由とのペアで全英OP準優勝3度・2014年トマス杯初優勝・リオ五輪ベスト8に輝いた日本男子ダブルスの開拓者。"
                 },
                 "pokemon": {
                   "id": 24,
@@ -1099,7 +1099,7 @@ window.TREE_DATA = {
           "type": "question",
           "depth": 4,
           "question_id": "jp_md_active_biprogy",
-          "question_text": "所属チームが「BIPROGY」（岡村・三橋ペア ／ 熊谷・西ペア）ですか？",
+          "question_text": "所属チームは「BIPROGY」ですか？",
           "tier": 2,
           "category": "所属チーム",
           "candidates_count": 8,
@@ -1108,18 +1108,18 @@ window.TREE_DATA = {
             "type": "question",
             "depth": 5,
             "question_id": "jp_md_okamitsu_vs_kumanishi",
-            "question_text": "世界ツアーSuper 500以上（熊本マスターズ準優勝など）や世界選手権で活躍する「岡村洋輝・三橋健也（オカミツ）」ペアのどちらかですか？",
+            "question_text": "1990年代生まれ（1997〜1998年生まれ）で、世界選手権出場やBWF Super 500（熊本マスターズ等）での準優勝実績があるペアの選手ですか？（※2002年生まれの若手ペアなら「いいえ」）",
             "tier": 3,
-            "category": "ペア・世代",
+            "category": "世代・実績",
             "candidates_count": 4,
             "yes": {
               "node_id": 53,
               "type": "question",
               "depth": 6,
               "question_id": "jp_md_okamura_vs_mitsuhashi",
-              "question_text": "1998年生まれ（北海道・帯広大谷高出身）で、以前は小野寺雅之選手ともペアを組んでいた長身選手ですか？",
+              "question_text": "北海道（帯広大谷高校）出身で、高校卒業後に直接実業団入りした長身選手ですか？（※福島・富岡高から日本大学を経て加入した選手なら「いいえ」）",
               "tier": 3,
-              "category": "年齢・キャリア",
+              "category": "出身・経歴",
               "candidates_count": 2,
               "yes": {
                 "node_id": 54,
@@ -1197,9 +1197,9 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "jp_md_kumagai_vs_nishi",
-              "question_text": "サウスポー（左利き）の選手（聖ウルスラ→日本大→BIPROGY）ですか？（※龍谷大出身で混合ダブルスでも活躍する相方なら「いいえ」）",
+              "question_text": "サウスポー（左利き）で、宮城県（聖ウルスラ学院英智高）から日本大学を経て加入した選手ですか？（※右利きで龍谷大学出身の選手なら「いいえ」）",
               "tier": 3,
-              "category": "利き手・種目",
+              "category": "利き手・出身大学",
               "candidates_count": 2,
               "yes": {
                 "node_id": 57,
@@ -1278,7 +1278,7 @@ window.TREE_DATA = {
             "type": "question",
             "depth": 5,
             "question_id": "jp_md_ntt_vs_hitachi",
-            "question_text": "「NTT東日本」で長年ペアを組んだ「古賀輝・齋藤太一（コガサイ）」のどちらかですか？（※日立情報通信エンジニアリングの「霜上・野村」なら「いいえ」）",
+            "question_text": "早稲田大学出身同士で「NTT東日本」にて長年ペアを組み、全日本総合選手権で優勝したペアの選手ですか？（※「日立情報通信エンジニアリング」所属のペアなら「いいえ」）",
             "tier": 3,
             "category": "所属チーム",
             "candidates_count": 4,
@@ -1287,9 +1287,9 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "jp_md_koga_vs_saito",
-              "question_text": "ダイビングレシーブなどアクロバティックな守備と前衛のひらめきで観客を沸かせる選手（早稲田大出身）ですか？",
+              "question_text": "埼玉県（埼玉栄高校）出身で、コートを飛び回るダイビングレシーブや混合ダブルスでの活躍でも知られる選手ですか？（※千葉県・富岡高出身の後衛強打者なら「いいえ」）",
               "tier": 3,
-              "category": "特徴・プレースタイル",
+              "category": "出身・プレースタイル",
               "candidates_count": 2,
               "yes": {
                 "node_id": 61,
@@ -1367,9 +1367,9 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "jp_md_shimogami_vs_nomura",
-              "question_text": "保原彩夏選手との混合ダブルスでも日本代表として国際大会優勝・上位入賞を重ねている選手（日本体育大出身）ですか？",
+              "question_text": "日本体育大学出身で、男子ダブルスだけでなく混合ダブルス（XD）でも日本代表として国際大会優勝・上位入賞を重ねている選手ですか？（※法政大学出身の男子ダブルス専任パートナーなら「いいえ」）",
               "tier": 3,
-              "category": "特徴・種目",
+              "category": "出身大学・二刀流",
               "candidates_count": 2,
               "yes": {
                 "node_id": 64,
@@ -1460,7 +1460,7 @@ window.TREE_DATA = {
         "type": "question",
         "depth": 3,
         "question_id": "jp_ws_tier",
-        "question_text": "オリンピック・世界選手権の出場経験がある、または全日本総合選手権（一般）の女子シングルス優勝経験がありますか？（山口・奥原・宮崎・大堀・仁平・髙橋沙也加・三谷・廣瀬）",
+        "question_text": "オリンピック・世界選手権（シニア）への出場経験がある、または全日本総合選手権（一般）の女子シングルスで優勝した経験がありますか？",
         "tier": 2,
         "category": "実績・タイトル",
         "candidates_count": 16,
@@ -1469,7 +1469,7 @@ window.TREE_DATA = {
           "type": "question",
           "depth": 4,
           "question_id": "jp_ws_active_2025",
-          "question_text": "2025〜2026年シーズンも現役でBWFワールドツアーやS/Jリーグの第一線に立つ選手（山口茜・奥原希望・宮崎友花・仁平菜月）ですか？",
+          "question_text": "2025〜2026年シーズンも現役でBWFワールドツアーやS/Jリーグの第一線に立っている選手ですか？",
           "tier": 2,
           "category": "現役・世代",
           "candidates_count": 8,
@@ -1478,7 +1478,7 @@ window.TREE_DATA = {
             "type": "question",
             "depth": 5,
             "question_id": "jp_ws_world_champ",
-            "question_text": "世界選手権（シニア）で優勝（金メダル）し、世界ランキング1位にも輝いた「世界女王」経験者（山口茜・奥原希望）ですか？",
+            "question_text": "世界選手権（シニア）での優勝（金メダル）および世界ランキング1位の両方を達成した「世界女王」経験者ですか？",
             "tier": 3,
             "category": "実績・世界女王",
             "candidates_count": 4,
@@ -1487,7 +1487,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "jp_ws_yamaguchi_vs_okuhara",
-              "question_text": "「再春館製薬所」所属で、世界選手権2連覇（2021・2022）と全日本総合5度優勝を達成している選手ですか？",
+              "question_text": "福井県出身・「再春館製薬所」所属で、2021年・2022年の世界選手権2連覇を達成していますか？",
               "tier": 3,
               "category": "所属・実績",
               "candidates_count": 2,
@@ -1567,7 +1567,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "jp_ws_miyazaki_vs_nidaira",
-              "question_text": "2006年生まれ（柳井商工→ACT SAIKYO）で、世界ジュニア女王から世界ランキングTOP10入りを果たした新世代ヒロインですか？",
+              "question_text": "2000年代生まれ（2006年生まれ）で、世界ジュニア女王を経て「ACT SAIKYO」に所属し10代で世界ランキングTOP10入りを果たしましたか？（※1998年生まれ・「ヨネックス」所属なら「いいえ」）",
               "tier": 3,
               "category": "所属・世代",
               "candidates_count": 2,
@@ -1648,7 +1648,7 @@ window.TREE_DATA = {
             "type": "question",
             "depth": 5,
             "question_id": "jp_ws_lefty_ohori_takahashi",
-            "question_text": "サウスポー（左利き）で長身の攻撃的シングルスプレーヤー（大堀彩・髙橋沙也加）ですか？",
+            "question_text": "サウスポー（左利き）で長身の攻撃的シングルスプレーヤーですか？",
             "tier": 3,
             "category": "利き手",
             "candidates_count": 4,
@@ -1657,7 +1657,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "jp_ws_ohori_vs_takahashi",
-              "question_text": "「トナミ運輸」所属で、2024年パリ五輪ベスト8およびタイマスターズ・オーストラリアOP優勝を飾って引退した選手ですか？",
+              "question_text": "「トナミ運輸」に所属し、2024年のタイマスターズ・オーストラリアオープン優勝およびパリ五輪ベスト8を達成して引退しましたか？（※元「BIPROGY」所属なら「いいえ」）",
               "tier": 3,
               "category": "所属・五輪",
               "candidates_count": 2,
@@ -1714,10 +1714,10 @@ window.TREE_DATA = {
                   "hand": "左利き",
                   "tags": [
                     "全日本総合優勝",
-                    "リオ五輪金髙橋礼華の妹",
+                    "ユーバー杯優勝メンバー",
                     "サウスポー"
                   ],
-                  "summary": "髙橋礼華の妹であり、豪快な左のスマッシュを武器に全日本総合優勝・世界ランクTOP10近くまで活躍したアタッカー。"
+                  "summary": "豪快な左のスマッシュと攻撃力を武器に全日本総合優勝・世界ランクTOP10近くまで活躍したBIPROGYのサウスポーアタッカー。"
                 },
                 "pokemon": {
                   "id": 38,
@@ -1737,7 +1737,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "jp_ws_mitani_vs_hirose",
-              "question_text": "2014年世界選手権で日本人女子シングルス37年ぶりの銅メダルを獲得した「NTT東日本」出身の選手ですか？",
+              "question_text": "「NTT東日本」に所属し、2014年の世界選手権で日本人女子シングルス37年ぶりの銅メダルを獲得した選手ですか？（※元「三洋電機／パナソニック」で全日本総合5度優勝の選手なら「いいえ」）",
               "tier": 3,
               "category": "実績・所属",
               "candidates_count": 2,
@@ -1762,7 +1762,7 @@ window.TREE_DATA = {
                     "フレンチOP優勝",
                     "NTT東日本"
                   ],
-                  "summary": "2012年フレンチオープン優勝・2014年世界選手権銅メダルを獲得し、奥原・山口時代の先駆けとなった粘り強い名選手。"
+                  "summary": "2012年フレンチオープン優勝・2014年世界選手権銅メダルを獲得し、その後の日本女子シングルス黄金期の先駆けとなった名選手。"
                 },
                 "pokemon": {
                   "id": 39,
@@ -1819,7 +1819,7 @@ window.TREE_DATA = {
           "type": "question",
           "depth": 4,
           "question_id": "jp_ws_next_team_west",
-          "question_text": "九州・中国地方のS/J強豪チームである「再春館製薬所」（熊本）または「ACT SAIKYO」（山口）に所属する選手ですか？",
+          "question_text": "九州・中国地方のS/Jリーグ強豪チーム（「再春館製薬所」または「ACT SAIKYO」）に所属する選手ですか？",
           "tier": 2,
           "category": "所属チーム",
           "candidates_count": 8,
@@ -1828,18 +1828,18 @@ window.TREE_DATA = {
             "type": "question",
             "depth": 5,
             "question_id": "jp_ws_next_gunji_suizu",
-            "question_text": "2022年以前に高卒入社し、世界ジュニア女王またはBWF Super 100以上のツアー優勝経験がある主力選手（郡司莉子・水津愛美）ですか？",
+            "question_text": "2002〜2003年生まれで、世界ジュニア選手権優勝またはBWFワールドツアー（Super 100）優勝の実績がある実業団中堅・主力選手ですか？",
             "tier": 3,
-            "category": "実績・キャリア",
+            "category": "実績・世代",
             "candidates_count": 4,
             "yes": {
               "node_id": 85,
               "type": "question",
               "depth": 6,
               "question_id": "jp_ws_gunji_vs_suizu",
-              "question_text": "「再春館製薬所」所属で、2019年世界ジュニア選手権で日本人3人目の世界ジュニア女王に輝いた選手ですか？",
+              "question_text": "熊本県出身・「再春館製薬所」所属で、2019年の世界ジュニア選手権で優勝（金メダル）していますか？（※「ACT SAIKYO」所属なら「いいえ」）",
               "tier": 3,
-              "category": "所属・実績",
+              "category": "所属・世界ジュニア",
               "candidates_count": 2,
               "yes": {
                 "node_id": 86,
@@ -1917,9 +1917,9 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "jp_ws_akechi_vs_watanabe",
-              "question_text": "柳井商工高出身で、インターハイ優勝を経て「再春館製薬所」で活躍し日本代表にも選出されている選手ですか？（※倉敷中央高出身の再春館若手なら「いいえ」）",
+              "question_text": "柳井商工高校の出身で、インターハイ優勝および国際チャレンジ大会優勝を経て日本代表に選出されていますか？（※倉敷中央高出身の再春館若手選手なら「いいえ」）",
               "tier": 3,
-              "category": "出身校・特徴",
+              "category": "出身校・実績",
               "candidates_count": 2,
               "yes": {
                 "node_id": 89,
@@ -1998,7 +1998,7 @@ window.TREE_DATA = {
             "type": "question",
             "depth": 5,
             "question_id": "jp_ws_yonex_group",
-            "question_text": "所属チームが「ヨネックス」（髙橋明日香・海老原詩織）ですか？",
+            "question_text": "所属チームは「ヨネックス」ですか？",
             "tier": 3,
             "category": "所属チーム",
             "candidates_count": 4,
@@ -2007,9 +2007,9 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "jp_ws_takahashi_asuka_vs_ebihara",
-              "question_text": "ふたば未来学園高出身（1999年生まれ）で、長年日本代表やS/Jリーグの主力として活躍している選手ですか？",
+              "question_text": "福島県・ふたば未来学園高校の出身で、1999年生まれの選手ですか？（※栃木県・作新学院高校出身なら「いいえ」）",
               "tier": 3,
-              "category": "出身・世代",
+              "category": "出身校・世代",
               "candidates_count": 2,
               "yes": {
                 "node_id": 93,
@@ -2087,7 +2087,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "jp_ws_sugiyama_vs_konishi",
-              "question_text": "「BIPROGY」所属（ふたば未来学園高出身）で、日本代表としてBWFワールドツアーを転戦している選手ですか？（※岐阜Bluvic所属でダブルスもこなす選手なら「いいえ」）",
+              "question_text": "「BIPROGY」に所属するシングルス専任選手ですか？（※「岐阜Bluvic」所属でシングルスと女子ダブルスの両種目に出場する選手なら「いいえ」）",
               "tier": 3,
               "category": "所属チーム",
               "candidates_count": 2,
@@ -2147,7 +2147,7 @@ window.TREE_DATA = {
                     "熊本マスターズ出場",
                     "単複二刀流"
                   ],
-                  "summary": "岐阜Bluvicに所属し、熊本マスターズジャパン2026では女子シングルスと女子ダブルス（石川心菜ペア）の両種目に出場する二刀流選手。"
+                  "summary": "岐阜Bluvicに所属し、熊本マスターズジャパン2026では女子シングルスと女子ダブルスの両種目に出場する二刀流選手。"
                 },
                 "pokemon": {
                   "id": 48,
@@ -2170,7 +2170,7 @@ window.TREE_DATA = {
         "type": "question",
         "depth": 3,
         "question_id": "jp_wd_era_active",
-        "question_text": "2021年東京五輪〜2026年現在の女子ダブルス4大ペア（シダマツ ／ フクヒロ ／ ナガマツ ／ ナカイワ）の選手ですか？（※タカマツ・オグシオや混合ダブルス主力・櫻本選手なら「いいえ」）",
+        "question_text": "2021年東京五輪〜2024年パリ五輪サイクルの女子ダブルス（WD）日本代表4大主力ペア（パリ五輪銅メダルペア、世界選手権2連覇の長身ペア、世界選手権3度銀メダルペア、またはBIPROGYの現主力WDペア）の選手ですか？",
         "tier": 2,
         "category": "世代・ペア系統",
         "candidates_count": 16,
@@ -2179,7 +2179,7 @@ window.TREE_DATA = {
           "type": "question",
           "depth": 4,
           "question_id": "jp_wd_kyushu_teams",
-          "question_text": "熊本を拠点とするペア（「再春館製薬所」のシダマツ：志田・松山 ／ 旧再春館→丸杉・岐阜Bluvicの「フクヒロ」：福島・廣田）ですか？",
+          "question_text": "熊本県の実業団チーム「再春館製薬所」に現在所属している、またはキャリアの主力を再春館製薬所で過ごしたペアの選手ですか？",
           "tier": 2,
           "category": "所属・ルーツ",
           "candidates_count": 8,
@@ -2188,18 +2188,18 @@ window.TREE_DATA = {
             "type": "question",
             "depth": 5,
             "question_id": "jp_wd_shidamatsu_vs_fukuhiro",
-            "question_text": "2024年パリ五輪で銅メダルを獲得した「シダマツ（志田千陽・松山奈未）」ペアのどちらかですか？",
+            "question_text": "2024年パリ五輪の女子ダブルスで「銅メダル」を獲得したペアの選手ですか？",
             "tier": 3,
-            "category": "ペア愛称・五輪メダル",
+            "category": "五輪メダル",
             "candidates_count": 4,
             "yes": {
               "node_id": 101,
               "type": "question",
               "depth": 6,
               "question_id": "jp_wd_shida_vs_matsuyama",
-              "question_text": "秋田県出身（青森山田高卒）で、高速ローテーションの展開力と笑顔のプレーで国内外から絶大な人気を誇る選手ですか？",
+              "question_text": "秋田県出身（青森山田高校卒）で、高速ローテーションの展開力でペアを牽引する選手ですか？（※福岡県出身・2016年世界ジュニアWD女王の相方なら「いいえ」）",
               "tier": 3,
-              "category": "出身・プレースタイル",
+              "category": "出身地",
               "candidates_count": 2,
               "yes": {
                 "node_id": 102,
@@ -2277,9 +2277,9 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "jp_wd_fukushima_vs_hirota",
-              "question_text": "力強い後衛アタックと無尽蔵のスタミナを誇り、2024年後半以降も松本麻佑選手との新ペア（「フクマツ」）等で現役を続ける選手ですか？",
+              "question_text": "力強い後衛アタックと無尽蔵のスタミナを武器とし、2024年後半以降も別の世界女王経験者と新ペアを組んで世界ツアー第一線で活躍している選手ですか？",
               "tier": 3,
-              "category": "現役動向・特徴",
+              "category": "役割・現役動向",
               "candidates_count": 2,
               "yes": {
                 "node_id": 105,
@@ -2302,7 +2302,7 @@ window.TREE_DATA = {
                     "世界選手権銀3度",
                     "元世界ランク1位"
                   ],
-                  "summary": "廣田彩花との「フクヒロ」で世界ランク1位・全英OP優勝を達成。さらに松本麻佑との「フクマツ」でも世界トップ戦線で活躍。"
+                  "summary": "廣田彩花との「フクヒロ」で世界ランク1位・全英OP優勝を達成。さらに松本麻佑との新ペアでも世界トップ戦線で活躍。"
                 },
                 "pokemon": {
                   "id": 51,
@@ -2337,7 +2337,7 @@ window.TREE_DATA = {
                     "世界選手権銀3度",
                     "元世界ランク1位"
                   ],
-                  "summary": "膝の大怪我を乗り越え東京五輪出場を果たすなど、鉄壁のレシーブと前衛の読みで「フクヒロ」黄金時代を築いた名プレーヤー。"
+                  "summary": "膝の大怪我を乗り越え東京五輪出場を果たすなど、鉄壁のレシーブと前衛の読みで黄金時代を築いた名プレーヤー。"
                 },
                 "pokemon": {
                   "id": 52,
@@ -2358,16 +2358,16 @@ window.TREE_DATA = {
             "type": "question",
             "depth": 5,
             "question_id": "jp_wd_nagamatsu_vs_nakaiwa",
-            "question_text": "170cm超の長身コンビで世界選手権2連覇（2018・2019）を達成した「ナガマツ（松本麻佑・永原和可那）」ペアのどちらかですか？",
+            "question_text": "北海道出身・元「北都銀行」所属の長身コンビで、2018年・2019年の世界選手権女子ダブルス2連覇を達成したペアの選手ですか？（※「BIPROGY」所属の現役ペアなら「いいえ」）",
             "tier": 3,
-            "category": "ペア愛称・所属",
+            "category": "実績・世界選手権2連覇",
             "candidates_count": 4,
             "yes": {
               "node_id": 108,
               "type": "question",
               "depth": 6,
               "question_id": "jp_wd_matsumoto_vs_nagahara",
-              "question_text": "身長177cmの日本人女子最長身クラスで、現在も「ほねごり」所属で福島由紀選手らとペアを組み世界ツアーを戦う選手ですか？",
+              "question_text": "身長177cmの日本人女子最長身クラスで、パリ五輪後に「ほねごり」へ移籍して現役を続けている選手ですか？",
               "tier": 3,
               "category": "身長・現役動向",
               "candidates_count": 2,
@@ -2392,7 +2392,7 @@ window.TREE_DATA = {
                     "世界選手権2連覇",
                     "177cm長身強打"
                   ],
-                  "summary": "177cmの高さから打ち下ろす強打で「ナガマツ」世界選手権2連覇を達成。現在は福島由紀とのペアでも世界の頂点を狙う。"
+                  "summary": "177cmの高さから打ち下ろす強打で世界選手権2連覇を達成。現在は福島由紀とのペアでも世界の頂点を狙う。"
                 },
                 "pokemon": {
                   "id": 53,
@@ -2427,7 +2427,7 @@ window.TREE_DATA = {
                     "世界選手権2連覇",
                     "東京＆パリ五輪代表"
                   ],
-                  "summary": "松本麻佑との「ナガマツ」で世界選手権2連覇・全英OP制覇・五輪2大会連続出場を成し遂げた日本WD界屈指のハードヒッター。"
+                  "summary": "松本麻佑とのペアで世界選手権2連覇・全英OP制覇・五輪2大会連続出場を成し遂げた日本WD界屈指のハードヒッター。"
                 },
                 "pokemon": {
                   "id": 54,
@@ -2447,9 +2447,9 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "jp_wd_nakanishi_vs_iwanaga",
-              "question_text": "早稲田大学出身で、高い打点からのスマッシュと広い守備範囲で「ナカイワ」の後衛・攻撃の軸を担う選手ですか？",
+              "question_text": "早稲田大学を経て実業団入りし、高い打点からの後衛スマッシュと広い守備範囲で攻撃の軸を担う選手ですか？（※柳井商工高から高卒加入した前衛主体の相方なら「いいえ」）",
               "tier": 3,
-              "category": "出身・特徴",
+              "category": "経歴・役割",
               "candidates_count": 2,
               "yes": {
                 "node_id": 112,
@@ -2507,7 +2507,7 @@ window.TREE_DATA = {
                     "BIPROGY",
                     "柳井商工出身"
                   ],
-                  "summary": "俊敏な前衛ワークと鋭いドライブ・プッシュで中西貴映との「ナカイワ」ペアを牽引し、世界の強豪ペアを次々と撃破する。"
+                  "summary": "俊敏な前衛ワークと鋭いドライブ・プッシュでペアを牽引し、世界の強豪ペアを次々と撃破する。"
                 },
                 "pokemon": {
                   "id": 56,
@@ -2529,7 +2529,7 @@ window.TREE_DATA = {
           "type": "question",
           "depth": 4,
           "question_id": "jp_wd_legend_pairs",
-          "question_text": "日本バドミントン史に輝く伝説の女子ダブルスペア「タカマツ（髙橋・松友）」または「オグシオ（小椋・潮田）」の4人のうちの誰かですか？",
+          "question_text": "2008年北京五輪〜2016年リオ五輪の時代に日本中を熱狂させた伝説の女子ダブルスペア（リオ五輪金メダルペア、または三洋電機の全日本総合5連覇ペア）の選手ですか？",
           "tier": 2,
           "category": "時代・レジェンドペア",
           "candidates_count": 8,
@@ -2538,7 +2538,7 @@ window.TREE_DATA = {
             "type": "question",
             "depth": 5,
             "question_id": "jp_wd_takamatsu_vs_ogushio",
-            "question_text": "2016年リオデジャネイロ五輪で日本バドミントン史上初のオリンピック金メダルを獲得した「タカマツ」ペアのどちらかですか？",
+            "question_text": "2016年リオデジャネイロ五輪で日本バドミントン史上初の「オリンピック金メダル」を獲得したペアの選手ですか？",
             "tier": 3,
             "category": "五輪金メダル",
             "candidates_count": 4,
@@ -2547,7 +2547,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "jp_wd_takahashi_vs_matsutomo",
-              "question_text": "パワフルな後衛スマッシュで「タカマツ」の攻撃を牽引し、2020年に現役を引退した選手ですか？（※前衛の天才・松友美佐紀選手なら「いいえ」）",
+              "question_text": "パワフルな後衛スマッシュとキャプテンシーで攻撃を牽引し、2020年に現役を引退した選手ですか？（※前衛の職人としてリオ金を獲り、その後も混合ダブルス等でプレーした相方なら「いいえ」）",
               "tier": 3,
               "category": "役割・現役状況",
               "candidates_count": 2,
@@ -2627,7 +2627,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "jp_wd_shiota_vs_ogura",
-              "question_text": "「オグシオ」解消後に池田信太郎選手と混合ダブルス「イケシオ」を組み、2012年ロンドン五輪にも出場した福岡県出身の選手ですか？",
+              "question_text": "女子ダブルスペア解消後に混合ダブルスへ転向し、2012年ロンドン五輪にも2大会連続で出場した福岡県出身の選手ですか？",
               "tier": 3,
               "category": "経歴・五輪",
               "candidates_count": 2,
@@ -2708,16 +2708,16 @@ window.TREE_DATA = {
             "type": "question",
             "depth": 5,
             "question_id": "jp_wd_watanabe_partners",
-            "question_text": "渡辺勇大選手と混合ダブルスのペアを組んだ経験がある選手（旧姓・東野有紗の「ワタガシ」／田口真彩の「ワタタグ」）ですか？",
+            "question_text": "オリンピック混合ダブルス2大会連続銅メダリストの左腕男子エースと、混合ダブルスでペアを組んだ経験がある選手ですか？",
             "tier": 3,
-            "category": "ペア歴・話題",
+            "category": "混合ダブルス実績",
             "candidates_count": 4,
             "yes": {
               "node_id": 123,
               "type": "question",
               "depth": 6,
               "question_id": "jp_wd_igarashi_vs_taguchi",
-              "question_text": "東京五輪・パリ五輪の混合ダブルスで2大会連続銅メダルを獲得し、2024年後半からは女子ダブルスにも本格挑戦している選手ですか？",
+              "question_text": "東京五輪・パリ五輪の混合ダブルスで2大会連続の銅メダルおよび全英オープン3度優勝を達成し、2024年後半から女子ダブルスにも本格挑戦している「BIPROGY」所属の選手ですか？",
               "tier": 3,
               "category": "五輪メダル・実績",
               "candidates_count": 2,
@@ -2777,7 +2777,7 @@ window.TREE_DATA = {
                     "2023世界ジュニアWD女王",
                     "ACT SAIKYO"
                   ],
-                  "summary": "2023年世界ジュニア女子ダブルス金メダリスト。渡辺勇大との混合ダブルス「ワタタグ」結成で大きな注目を集めるサウスポー新星。"
+                  "summary": "2023年世界ジュニア女子ダブルス金メダリスト。混合ダブルス新ペア結成で大きな注目を集めるサウスポー新星。"
                 },
                 "pokemon": {
                   "id": 62,
@@ -2797,7 +2797,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "jp_wd_saito_vs_sakuramoto",
-              "question_text": "「ACT SAIKYO」所属で、緑川大輝選手との混合ダブルス（ミドサイ）で長年日本代表の主力を務める選手ですか？（※ヨネックス所属のサウスポーWD名手・櫻本絢子選手なら「いいえ」）",
+              "question_text": "「ACT SAIKYO」に所属し、混合ダブルス（XD）の日本代表主力として世界ツアー上位で活躍している右利きの選手ですか？（※「ヨネックス」所属のサウスポー女子ダブルス名手なら「いいえ」）",
               "tier": 3,
               "category": "主戦場・所属",
               "candidates_count": 2,
@@ -2857,7 +2857,7 @@ window.TREE_DATA = {
                     "サウスポーWD名手",
                     "スイスOP優勝"
                   ],
-                  "summary": "髙畑祐紀子、宮浦玲奈、廣田彩花ら数々のパートナーと組み世界ツアー上位・優勝を経験しているヨネックスの左腕ダブルス職人。"
+                  "summary": "数々のパートナーと組みBWFワールドツアー優勝・世界ランキング上位を経験しているヨネックスの左腕ダブルス職人。"
                 },
                 "pokemon": {
                   "id": 64,
@@ -2900,7 +2900,7 @@ window.TREE_DATA = {
         "type": "question",
         "depth": 3,
         "question_id": "intl_ms_region_era",
-        "question_text": "アジア出身の「現役」トップ選手（石宇奇・李詩灃・クンラヴット・リージージャ・ギンティン・クリスティ・周天成・ラクシャセン）ですか？（※欧州選手、またはリンダン・リーチョンウェイら引退レジェンドなら「いいえ」）",
+        "question_text": "アジア出身で、2025〜2026年現在も現役でBWFワールドツアーを戦っている選手ですか？（※ヨーロッパ出身の選手、またはすでに現役を引退したレジェンド選手なら「いいえ」）",
         "tier": 2,
         "category": "地域・世代",
         "candidates_count": 16,
@@ -2909,7 +2909,7 @@ window.TREE_DATA = {
           "type": "question",
           "depth": 4,
           "question_id": "intl_ms_southeast_asia",
-          "question_text": "東南アジア（タイ・マレーシア・インドネシア）の選手ですか？（※中国・台湾・インドなら「いいえ」）",
+          "question_text": "東南アジア（インドネシア・タイ・マレーシア）の代表選手ですか？（※中国・台湾・インドの代表選手なら「いいえ」）",
           "tier": 2,
           "category": "国籍・地域",
           "candidates_count": 8,
@@ -2918,7 +2918,7 @@ window.TREE_DATA = {
             "type": "question",
             "depth": 5,
             "question_id": "intl_ms_indonesia",
-            "question_text": "「インドネシア」代表の2大看板エース（ギンティン ／ ジョナタン・クリスティ）のどちらかですか？",
+            "question_text": "「インドネシア」代表の選手ですか？",
             "tier": 3,
             "category": "国籍",
             "candidates_count": 4,
@@ -2927,9 +2927,9 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "intl_ms_ginting_vs_christie",
-              "question_text": "東京五輪の銅メダリストで、電光石火のネットプレーとスピードから「ギンティン・マジック」と呼ばれる選手ですか？",
+              "question_text": "2021年東京五輪の男子シングルスで「銅メダル」を獲得した、電光石火のスピードとネットプレーを武器とする選手ですか？（※2018年アジア大会金メダル・2024年全英オープン優勝の選手なら「いいえ」）",
               "tier": 3,
-              "category": "特徴・実績",
+              "category": "五輪メダル・特徴",
               "candidates_count": 2,
               "yes": {
                 "node_id": 135,
@@ -3007,7 +3007,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "intl_ms_kunlavut_vs_leeziijia",
-              "question_text": "「タイ」代表で、2023年世界選手権優勝および2024年パリ五輪銀メダルを獲得した選手ですか？",
+              "question_text": "「タイ」代表で、世界ジュニア3連覇・2023年世界選手権優勝・2024年パリ五輪銀メダルを獲得した選手ですか？（※「マレーシア」代表で全英OP優勝・パリ五輪銅メダルの選手なら「いいえ」）",
               "tier": 3,
               "category": "国籍・実績",
               "candidates_count": 2,
@@ -3088,7 +3088,7 @@ window.TREE_DATA = {
             "type": "question",
             "depth": 5,
             "question_id": "intl_ms_china_pair",
-            "question_text": "「中国」代表のシングルス選手（石宇奇 ／ 李詩灃）ですか？",
+            "question_text": "「中国」代表の選手ですか？",
             "tier": 3,
             "category": "国籍",
             "candidates_count": 4,
@@ -3097,7 +3097,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "intl_ms_shiyuqi_vs_lishifeng",
-              "question_text": "1996年生まれで、2018年＆2025年全英オープン優勝・世界ランキング1位に君臨する中国男子の絶対的エースですか？",
+              "question_text": "1990年代生まれ（1996年生まれ）で、世界ランキング1位に到達し全英オープンを2018年・2025年と2度制覇している選手ですか？（※2000年生まれで2023年全英OP＆アジア大会王者の選手なら「いいえ」）",
               "tier": 3,
               "category": "世代・実績",
               "candidates_count": 2,
@@ -3177,7 +3177,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "intl_ms_chou_vs_sen",
-              "question_text": "「台湾（チャイニーズ・タイペイ）」代表で、30代後半になっても世界ツアー優勝を重ねる鉄人レジェンドですか？",
+              "question_text": "「台湾（チャイニーズ・タイペイ）」代表で、五輪3大会連続ベスト8および世界ツアー通算10勝以上を誇るベテランの鉄人選手ですか？（※「インド」代表でパリ五輪ベスト4の若手エースなら「いいえ」）",
               "tier": 3,
               "category": "国籍・世代",
               "candidates_count": 2,
@@ -3259,7 +3259,7 @@ window.TREE_DATA = {
           "type": "question",
           "depth": 4,
           "question_id": "intl_ms_europe_vs_legends",
-          "question_text": "ヨーロッパ（デンマーク・フランス）の現役選手（アクセルセン・アントンセン・ラニエ・ポポフ）ですか？（※リンダン・リーチョンウェイら「四大天王」レジェンドなら「いいえ」）",
+          "question_text": "ヨーロッパ（デンマーク・フランス）出身の現役選手ですか？（※2000〜2010年代の世界を彩ったアジアの引退レジェンド「四大天王」世代なら「いいえ」）",
           "tier": 2,
           "category": "地域・現役",
           "candidates_count": 8,
@@ -3268,7 +3268,7 @@ window.TREE_DATA = {
             "type": "question",
             "depth": 5,
             "question_id": "intl_ms_denmark_vs_france",
-            "question_text": "北欧のバドミントン強豪国「デンマーク」の選手（アクセルセン ／ アントンセン）ですか？（※フランス代表なら「いいえ」）",
+            "question_text": "北欧のバドミントン強豪国「デンマーク」代表の選手ですか？（※「フランス」代表の選手なら「いいえ」）",
             "tier": 3,
             "category": "国籍",
             "candidates_count": 4,
@@ -3277,7 +3277,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "intl_ms_axelsen_vs_antonsen",
-              "question_text": "身長194cmで、東京五輪・パリ五輪の男子シングルス2連覇＆世界選手権2度優勝を達成した絶対王者ですか？",
+              "question_text": "身長194cmで、東京五輪・パリ五輪の男子シングルス2連覇および世界選手権2度優勝を達成した絶対王者ですか？",
               "tier": 3,
               "category": "五輪金メダル・身長",
               "candidates_count": 2,
@@ -3357,9 +3357,9 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "intl_ms_lanier_vs_popov",
-              "question_text": "2005年生まれで、2024年ジャパンオープン（Super 750）を19歳で制して世界を驚かせたフランスの超新星ですか？",
+              "question_text": "2005年生まれのシングルス専任選手で、2024年ジャパンオープン（Super 750）を19歳の若さで制覇しましたか？（※実弟との男子ダブルスとシングルスの二刀流で戦う選手なら「いいえ」）",
               "tier": 3,
-              "category": "世代・特徴",
+              "category": "世代・種目",
               "candidates_count": 2,
               "yes": {
                 "node_id": 153,
@@ -3417,7 +3417,7 @@ window.TREE_DATA = {
                     "単複二刀流",
                     "全英OP上位"
                   ],
-                  "summary": "弟クリスト・ポポフとの男子ダブルスと男子シングルスの二刀流で世界のトップ選手を次々と破るフランス代表の頼れる兄貴分。"
+                  "summary": "実弟との男子ダブルスと男子シングルスの二刀流で世界のトップ選手を次々と破るフランス代表の頼れるエース。"
                 },
                 "pokemon": {
                   "id": 76,
@@ -3438,7 +3438,7 @@ window.TREE_DATA = {
             "type": "question",
             "depth": 5,
             "question_id": "intl_ms_legends_china",
-            "question_text": "「中国」代表としてオリンピック金メダルを獲得したレジェンド（林丹 ／ 諶龍）ですか？（※マレーシアのリー・チョンウェイ、インドネシアのヒダヤットなら「いいえ」）",
+            "question_text": "「中国」代表としてオリンピックの男子シングルス金メダルを獲得したレジェンド選手ですか？",
             "tier": 3,
             "category": "国籍",
             "candidates_count": 4,
@@ -3447,7 +3447,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "intl_ms_lindan_vs_chenlong",
-              "question_text": "サウスポー（左利き）で、北京・ロンドン五輪2連覇＆世界選手権5度優勝を達成した史上最高の選手「スーパー・ダン」ですか？",
+              "question_text": "サウスポー（左利き）で、2008年北京五輪・2012年ロンドン五輪の2連覇および世界選手権5度優勝を達成していますか？",
               "tier": 3,
               "category": "利き手・実績",
               "candidates_count": 2,
@@ -3527,7 +3527,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "intl_ms_lcw_vs_taufik",
-              "question_text": "「マレーシア」の国民的英雄で、五輪3大会連続銀メダル・世界ランキング1位通算349週の大記録を持つ選手ですか？",
+              "question_text": "「マレーシア」代表として五輪3大会連続銀メダルを獲得し、世界ランキング1位に349週君臨した国民的英雄ですか？（※2004年アテネ五輪金メダルの「インドネシア」代表なら「いいえ」）",
               "tier": 3,
               "category": "国籍・実績",
               "candidates_count": 2,
@@ -3552,7 +3552,7 @@ window.TREE_DATA = {
                     "世界1位通算349週",
                     "マレーシアの英雄"
                   ],
-                  "summary": "超人的なバネとスピードでBWFスーパーシリーズ通算46勝・世界ランク1位349週を記録し、林丹と数々の名勝負を演じた伝説。"
+                  "summary": "超人的なバネとスピードでBWFスーパーシリーズ通算46勝・世界ランク1位349週を記録し、数々の歴史的名勝負を演じた伝説。"
                 },
                 "pokemon": {
                   "id": 79,
@@ -3610,16 +3610,16 @@ window.TREE_DATA = {
         "type": "question",
         "depth": 3,
         "question_id": "intl_md_indonesia_or_eastasia",
-        "question_text": "中国・韓国・台湾（東アジア）の男子ダブルスまたは混合ダブルス選手（梁偉鏗・王昶・ソスンジェ・カンミンヒョク・李洋・王齊麟・鄭思維）とタイのデチャポルのグループですか？（※インドネシア・マレーシア・インド・デンマークのMDなら「いいえ」）",
+        "question_text": "東アジア（中国・韓国・台湾）出身の選手、または混合ダブルス（XD）で世界選手権優勝を果たした選手ですか？（※インドネシア・マレーシア・インド・デンマークの男子ダブルス専任選手なら「いいえ」）",
         "tier": 2,
-        "category": "国籍・ペア系統",
+        "category": "国籍・種目系統",
         "candidates_count": 16,
         "yes": {
           "node_id": 163,
           "type": "question",
           "depth": 4,
           "question_id": "intl_md_china_korea_md",
-          "question_text": "現在の「中国」または「韓国」の男子ダブルス世界トップペア（梁偉鏗・王昶 ／ ソ・スンジェ・カン・ミンヒョク）の4人のうちの誰かですか？",
+          "question_text": "「中国」または「韓国」の代表で、男子ダブルス（MD）で2023年世界選手権優勝または2024年パリ五輪銀メダルを獲得したペアの選手ですか？",
           "tier": 2,
           "category": "国籍・種目",
           "candidates_count": 8,
@@ -3628,7 +3628,7 @@ window.TREE_DATA = {
             "type": "question",
             "depth": 5,
             "question_id": "intl_md_liangwang_vs_seokang",
-            "question_text": "「中国」代表で、パリ五輪銀メダル・世界ランキング1位に輝いた「梁王（リャン・ワン）」ペアのどちらかですか？",
+            "question_text": "「中国」代表で、2024年パリ五輪の男子ダブルス銀メダルおよび世界ランキング1位を獲得したペアの選手ですか？（※「韓国」代表の2023年世界選手権優勝ペアなら「いいえ」）",
             "tier": 3,
             "category": "国籍",
             "candidates_count": 4,
@@ -3637,7 +3637,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "intl_md_liang_vs_wang",
-              "question_text": "後衛からの重砲ジャンピングスマッシュを最大の武器とするパワーヒッター（広東省出身）ですか？（※前衛の魔術師・王昶選手なら「いいえ」）",
+              "question_text": "主に「後衛」から重砲のようなジャンピングスマッシュを打ち込むパワーヒッターですか？（※主に「前衛」での超高速インターセプトとゲームメイクを担う相方なら「いいえ」）",
               "tier": 3,
               "category": "役割・プレースタイル",
               "candidates_count": 2,
@@ -3697,7 +3697,7 @@ window.TREE_DATA = {
                     "パリ五輪銀メダル",
                     "前衛の魔術師"
                   ],
-                  "summary": "超人的な反射神経の前衛インターセプトと笑顔のプレーで大人気を集める中国MDのスター。梁偉鏗と世界1位ペアを形成。"
+                  "summary": "超人的な反射神経の前衛インターセプトと笑顔のプレーで大人気を集める中国MDのスター。世界1位ペアの前衛を担う。"
                 },
                 "pokemon": {
                   "id": 82,
@@ -3742,7 +3742,7 @@ window.TREE_DATA = {
                     "サウスポー",
                     "韓国の絶対的柱"
                   ],
-                  "summary": "2023年世界選手権でMD（カン・ミンヒョク）とXD（チェ・ユジョン）の二冠を達成した現代最高のオールラウンド・ダブルスプレーヤー。"
+                  "summary": "2023年世界選手権でMDとXDの二冠を達成した現代最高のオールラウンド・ダブルスプレーヤー。"
                 },
                 "pokemon": {
                   "id": 83,
@@ -3777,7 +3777,7 @@ window.TREE_DATA = {
                     "高速ドライブ",
                     "韓国代表"
                   ],
-                  "summary": "ソ・スンジェとのペアで2023年世界選手権男子ダブルス金メダルを獲得。低空ドライブと鉄壁のレシーブで韓国MDを牽引する。"
+                  "summary": "2023年世界選手権男子ダブルス金メダリスト。低空ドライブと鉄壁のレシーブで韓国MDを牽引する。"
                 },
                 "pokemon": {
                   "id": 84,
@@ -3798,7 +3798,7 @@ window.TREE_DATA = {
             "type": "question",
             "depth": 5,
             "question_id": "intl_md_taiwan_olympic_gold",
-            "question_text": "東京五輪・パリ五輪の男子ダブルスで史上初の「五輪2連覇」を達成した台湾の『麟洋配（李洋・王齊麟）』のどちらかですか？",
+            "question_text": "「台湾（チャイニーズ・タイペイ）」代表で、東京五輪・パリ五輪の男子ダブルスで史上初の「五輪2連覇」を達成したペアの選手ですか？（※混合ダブルス［XD］の世界王者なら「いいえ」）",
             "tier": 3,
             "category": "種目・五輪2連覇",
             "candidates_count": 4,
@@ -3807,7 +3807,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "intl_md_leeyang_vs_wangchilin",
-              "question_text": "前衛とゲームメイクを主に担い、パリ五輪金メダルと2024年台北オープンを最後に現役を引退（教授就任等）した選手ですか？",
+              "question_text": "主に前衛・ドライブ展開を担い、2024年パリ五輪金メダルと台北オープンを最後に現役を引退（大学教授等に就任）した選手ですか？（※身長188cmの後衛強打者で現役を続ける相方なら「いいえ」）",
               "tier": 3,
               "category": "役割・現役状況",
               "candidates_count": 2,
@@ -3832,7 +3832,7 @@ window.TREE_DATA = {
                     "麟洋配",
                     "大舞台の鬼"
                   ],
-                  "summary": "王齊麟との「麟洋配」で東京五輪・パリ五輪の男子ダブルス2連覇を達成し、五輪通算12勝1敗という伝説を残して引退した台湾の英雄。"
+                  "summary": "東京五輪・パリ五輪の男子ダブルス2連覇を達成し、五輪通算12勝1敗という伝説を残して引退した台湾の英雄。"
                 },
                 "pokemon": {
                   "id": 85,
@@ -3867,7 +3867,7 @@ window.TREE_DATA = {
                     "麟洋配",
                     "188cm強打"
                   ],
-                  "summary": "188cmの長身から放つ重爆スマッシュで五輪MD2連覇を達成。李洋の引退後も新パートナーと現役で世界ツアーを戦う。"
+                  "summary": "188cmの長身から放つ重爆スマッシュで五輪MD2連覇を達成。相方の引退後も新パートナーと現役で世界ツアーを戦う。"
                 },
                 "pokemon": {
                   "id": 86,
@@ -3887,7 +3887,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "intl_md_zheng_vs_dechapol",
-              "question_text": "「中国」代表で、黄雅瓊とのペア「雅思（ヤースー）」でパリ五輪金メダル・世界選手権3度優勝を達成した混合ダブルス史上最強の男子選手ですか？",
+              "question_text": "「中国」代表で、混合ダブルスで世界選手権3度優勝および2024年パリ五輪金メダルを獲得した選手ですか？（※「タイ」代表の2021年世界選手権XD金メダリストなら「いいえ」）",
               "tier": 3,
               "category": "国籍・五輪金",
               "candidates_count": 2,
@@ -3912,7 +3912,7 @@ window.TREE_DATA = {
                     "世界選手権3度優勝",
                     "雅思コンビ"
                   ],
-                  "summary": "黄雅瓊との「雅思」ペアで世界ランク1位に長年君臨し、世界選手権3勝＆パリ五輪金メダルで悲願を達成したXD界の絶対皇帝。"
+                  "summary": "混合ダブルス世界ランク1位に長年君臨し、世界選手権3勝＆パリ五輪金メダルで悲願を達成したXD界の絶対皇帝。"
                 },
                 "pokemon": {
                   "id": 87,
@@ -3947,7 +3947,7 @@ window.TREE_DATA = {
                     "バスポー",
                     "元世界ランク1位"
                   ],
-                  "summary": "愛称「バス」。サプシリーとの「バスポー」ペアで2021年世界選手権優勝＆世界ランク1位を獲得したタイ混合ダブルスの至宝。"
+                  "summary": "愛称「バス」。2021年世界選手権優勝＆世界ランク1位を獲得したタイ混合ダブルスの至宝。"
                 },
                 "pokemon": {
                   "id": 88,
@@ -3969,7 +3969,7 @@ window.TREE_DATA = {
           "type": "question",
           "depth": 4,
           "question_id": "intl_md_minions_daddies",
-          "question_text": "インドネシアが世界に誇る2大伝説ペア「ミニオンズ（ギデオン・ケビン）」または「ダディーズ（アッサン・セティアワン）」の4人のうちの誰かですか？",
+          "question_text": "「インドネシア」代表として世界を席巻し、2024年までに現役を引退（または第一線を勇退）した伝説の2大男子ダブルスペア（「ミニオンズ」または「ダディーズ」）の選手ですか？",
           "tier": 2,
           "category": "伝説ペア",
           "candidates_count": 8,
@@ -3978,16 +3978,16 @@ window.TREE_DATA = {
             "type": "question",
             "depth": 5,
             "question_id": "intl_md_minions_vs_daddies",
-            "question_text": "超高速ノーロブ戦術で世界ランキング1位に約5年間君臨した「ミニオンズ（ギデオン・ケビン）」のどちらかですか？",
+            "question_text": "超高速ノーロブ戦術で2017年〜2022年にかけて世界ランキング1位に約5年間（200週超）君臨した「ミニオンズ」ペアの選手ですか？（※世界選手権3度優勝の「ダディーズ」ペアなら「いいえ」）",
             "tier": 3,
-            "category": "ペア愛称",
+            "category": "ペア愛称・戦術",
             "candidates_count": 4,
             "yes": {
               "node_id": 180,
               "type": "question",
               "depth": 6,
               "question_id": "intl_md_kevin_vs_gideon",
-              "question_text": "背面ショットやノールックプッシュなど神業的な前衛トリックプレーで世界中のファンを熱狂させた選手ですか？",
+              "question_text": "主に「前衛」を担当し、背面ショットやノールックプッシュなど神業的なトリックプレーで世界中のファンを熱狂させた選手ですか？",
               "tier": 3,
               "category": "役割・プレースタイル",
               "candidates_count": 2,
@@ -4047,7 +4047,7 @@ window.TREE_DATA = {
                     "世界1位200週超",
                     "全英OP2連覇"
                   ],
-                  "summary": "ケビンの自由奔放な前衛を後ろから支え続けた無尽蔵の連続スマッシュとカバーリングで、年間最多優勝記録を樹立した名パートナー。"
+                  "summary": "自由奔放な前衛を後ろから支え続けた無尽蔵の連続スマッシュとカバーリングで、年間最多優勝記録を樹立した名パートナー。"
                 },
                 "pokemon": {
                   "id": 90,
@@ -4067,7 +4067,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "intl_md_setiawan_vs_ahsan",
-              "question_text": "2008年北京五輪の金メダリスト（マルキス・キドとのペア）であり、世界選手権4度優勝を誇る「史上最高のネット前職人」ですか？",
+              "question_text": "2008年北京五輪の男子ダブルス金メダリストであり、世界選手権通算4度優勝を誇る「史上最高のネット前職人」ですか？",
               "tier": 3,
               "category": "五輪金・役割",
               "candidates_count": 2,
@@ -4092,7 +4092,7 @@ window.TREE_DATA = {
                     "北京五輪金メダル",
                     "世界選手権4度優勝"
                   ],
-                  "summary": "北京五輪金メダルと世界選手権4度優勝を達成。最小限の動きでシャトルを支配する「神の前衛」として世界中の選手から尊敬を集めるレジェンド。"
+                  "summary": "北京五輪金メダルと世界選手権4度優勝を達成。最小限の動きでシャトルを支配する「神の前衛」として尊敬を集めるレジェンド。"
                 },
                 "pokemon": {
                   "id": 91,
@@ -4127,7 +4127,7 @@ window.TREE_DATA = {
                     "世界選手権3度優勝",
                     "全英OP2度優勝"
                   ],
-                  "summary": "セティアワンとの「ダディーズ」で世界選手権3度（2013・2015・2019）優勝。鋭角なスマッシュと熱い闘志で30代後半まで世界の頂点で戦った。"
+                  "summary": "「ダディーズ」の後衛として世界選手権3度（2013・2015・2019）優勝。鋭角なスマッシュと熱い闘志で30代後半まで頂点で戦った。"
                 },
                 "pokemon": {
                   "id": 92,
@@ -4148,7 +4148,7 @@ window.TREE_DATA = {
             "type": "question",
             "depth": 5,
             "question_id": "intl_md_chia_rankireddy",
-            "question_text": "「マレーシア」または「インド」の代表エース（アーロン・チア ／ サトウィクサイラジ・ランキレディ）ですか？（※デンマークのアストルップ、インドネシアのアルフィアンなら「いいえ」）",
+            "question_text": "「マレーシア」または「インド」の代表エースですか？（※「デンマーク」または「インドネシア」の現役代表なら「いいえ」）",
             "tier": 3,
             "category": "国籍",
             "candidates_count": 4,
@@ -4157,7 +4157,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "intl_md_chia_vs_rankireddy",
-              "question_text": "「マレーシア」代表（ソー・ウーイックとのペア）で、2022年世界選手権優勝および東京・パリ五輪2大会連続銅メダルを獲得した選手ですか？",
+              "question_text": "「マレーシア」代表で、2022年世界選手権優勝および東京・パリ五輪の2大会連続銅メダルを獲得した選手ですか？（※「インド」代表で初速565km/hのギネス世界最速スマッシュ記録保持者なら「いいえ」）",
               "tier": 3,
               "category": "国籍・実績",
               "candidates_count": 2,
@@ -4182,7 +4182,7 @@ window.TREE_DATA = {
                     "五輪2連続銅メダル",
                     "チア/ソー"
                   ],
-                  "summary": "ソー・ウーイックとのペアでマレーシア史上初の世界選手権金メダル（2022東京）と五輪2大会連続銅メダルをもたらした大舞台の勝負師。"
+                  "summary": "マレーシア史上初の世界選手権金メダル（2022東京）と五輪2大会連続銅メダルをもたらした大舞台の勝負師。"
                 },
                 "pokemon": {
                   "id": 93,
@@ -4217,7 +4217,7 @@ window.TREE_DATA = {
                     "アジア大会金",
                     "世界ランク1位経験"
                   ],
-                  "summary": "チラグ・シェッティとのペアでインドMD史上初の世界ランク1位＆アジア大会金メダルを獲得。初速565km/hのギネス世界最速スマッシュ保持者。"
+                  "summary": "インド男子ダブルス史上初の世界ランク1位＆アジア大会金メダルを獲得。初速565km/hのギネス世界最速スマッシュ保持者。"
                 },
                 "pokemon": {
                   "id": 94,
@@ -4237,7 +4237,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "intl_md_astrup_vs_alfian",
-              "question_text": "「デンマーク」代表（ラスムセンとのペア）で、2023年世界選手権銀メダル・2024年ワールドツアーファイナルズ優勝＆世界ランク1位到達を果たした選手ですか？",
+              "question_text": "「デンマーク」代表のサウスポー（左利き）で、2023年世界選手権銀メダル・2024年ワールドツアーファイナルズ優勝＆世界ランク1位到達を果たした選手ですか？（※「インドネシア」代表で2023・2024全英OP2連覇の選手なら「いいえ」）",
               "tier": 3,
               "category": "国籍・特徴",
               "candidates_count": 2,
@@ -4262,7 +4262,7 @@ window.TREE_DATA = {
                     "ツアーファイナルズ優勝",
                     "世界ランク1位経験"
                   ],
-                  "summary": "ラスムセンとの熟練コンビで30代にして世界ランキング1位に到達。独特のサービスまわりと緩急自在のレシーブで相手を翻弄する左腕。"
+                  "summary": "熟練のコンビネーションで30代にして世界ランキング1位に到達。独特のサービスまわりと緩急自在のレシーブで相手を翻弄する左腕。"
                 },
                 "pokemon": {
                   "id": 95,
@@ -4297,7 +4297,7 @@ window.TREE_DATA = {
                     "元世界ランク1位",
                     "ファジャリ"
                   ],
-                  "summary": "アルディアントとの「ファジャリ」ペアで2023・2024年全英オープン2連覇＆世界ランキング1位を達成したインドネシアMDの看板前衛。"
+                  "summary": "2023・2024年全英オープン2連覇＆世界ランキング1位を達成したインドネシア男子ダブルスの看板前衛プレーヤー。"
                 },
                 "pokemon": {
                   "id": 96,
@@ -4330,7 +4330,7 @@ window.TREE_DATA = {
         "type": "question",
         "depth": 3,
         "question_id": "intl_ws_region_group",
-        "question_text": "東アジア（韓国・中国・台湾）またはヨーロッパ（スペイン）の選手（アンセヨン・陳雨菲・戴資穎・マリン・王祉怡・韓悦・何氷嬌・王儀涵）ですか？（※インド・タイ・インドネシアの選手なら「いいえ」）",
+        "question_text": "東アジア（韓国・中国・台湾）またはヨーロッパ（スペイン）出身の選手ですか？（※インド・タイ・インドネシア出身の選手なら「いいえ」）",
         "tier": 2,
         "category": "国籍・地域",
         "candidates_count": 16,
@@ -4339,16 +4339,16 @@ window.TREE_DATA = {
           "type": "question",
           "depth": 4,
           "question_id": "intl_ws_big4_non_cn_plus_cyf",
-          "question_text": "2020年代の女子シングルス「世界Big4（アン・セヨン ／ 陳雨菲 ／ 戴資穎）」またはリオ五輪金メダルの「キャロリーナ・マリン」の4人のうちの誰かですか？",
+          "question_text": "オリンピックの女子シングルス「金メダリスト」（2016リオ・2021東京・2024パリ）、または世界ランキング1位に通算200週以上君臨した台湾のレジェンド選手ですか？",
           "tier": 2,
-          "category": "Big4・五輪金",
+          "category": "五輪金・世界1位記録",
           "candidates_count": 8,
           "yes": {
             "node_id": 196,
             "type": "question",
             "depth": 5,
             "question_id": "intl_ws_olympic_gold_anseyoung_cyf",
-            "question_text": "2021年東京五輪または2024年パリ五輪の女子シングルス「金メダリスト」（アン・セヨン ／ 陳雨菲）ですか？",
+            "question_text": "2021年東京五輪または2024年パリ五輪の女子シングルスで「金メダル」を獲得した選手ですか？",
             "tier": 3,
             "category": "五輪金メダル（東京・パリ）",
             "candidates_count": 4,
@@ -4357,7 +4357,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "intl_ws_anseyoung_vs_chenyufei",
-              "question_text": "「韓国」代表で、2023年世界選手権・アジア大会・2024年パリ五輪金メダルを総なめにした現・世界ランキング1位女王ですか？",
+              "question_text": "「韓国」代表で、2023年世界選手権・アジア大会・2024年パリ五輪金メダルを総なめにした現・世界ランキング1位女王ですか？（※「中国」代表の2021年東京五輪金メダリストなら「いいえ」）",
               "tier": 3,
               "category": "国籍・実績",
               "candidates_count": 2,
@@ -4437,7 +4437,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "intl_ws_taitzuying_vs_marin",
-              "question_text": "「台湾」代表で、変幻自在のフェイントとラケットワークから「コート上の魔術師」と愛され世界ランク1位通算214週を記録した選手ですか？",
+              "question_text": "「台湾（チャイニーズ・タイペイ）」代表で、変幻自在のフェイントから「コート上の魔術師」と愛され東京五輪銀メダル・世界1位通算214週を記録した右利きの選手ですか？（※「スペイン」代表の左利きリオ五輪金・世界選手権3度優勝の選手なら「いいえ」）",
               "tier": 3,
               "category": "国籍・プレースタイル",
               "candidates_count": 2,
@@ -4518,7 +4518,7 @@ window.TREE_DATA = {
             "type": "question",
             "depth": 5,
             "question_id": "intl_ws_china_active_2025",
-            "question_text": "2000年生まれで、2024〜2026年のBWFワールドツアーで世界ランキングTOP5入りしている中国現役主力コンビ（王祉怡 ／ 韓悦）ですか？",
+            "question_text": "2000年生まれで、2025〜2026年現在のBWFワールドツアーで世界ランキングTOP5圏内に定着している中国の現役主力選手ですか？",
             "tier": 3,
             "category": "現役世代",
             "candidates_count": 4,
@@ -4527,7 +4527,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "intl_ws_wangzhiyi_vs_hanyue",
-              "question_text": "2024年アジア選手権優勝・中国オープン（Super 1000）優勝・ワールドツアーファイナルズ優勝を達成し、世界ランク2位まで躍進した選手ですか？",
+              "question_text": "2024年のアジア選手権・中国オープン（Super 1000）・ワールドツアーファイナルズを制覇し、世界ランキング2位まで躍進した選手ですか？",
               "tier": 3,
               "category": "実績・タイトル",
               "candidates_count": 2,
@@ -4607,7 +4607,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "intl_ws_hebingjiao_vs_wangyihan",
-              "question_text": "サウスポー（左利き）で、2024年パリ五輪で銀メダルを獲得し、表彰台で負傷したマリン選手のスペインバッジを掲げて感動を呼んだ選手ですか？",
+              "question_text": "サウスポー（左利き）で、2024年パリ五輪の女子シングルスで銀メダルを獲得した選手ですか？（※右利きで2011年世界選手権優勝・2012年ロンドン五輪銀メダルの選手なら「いいえ」）",
               "tier": 3,
               "category": "利き手・五輪",
               "candidates_count": 2,
@@ -4688,17 +4688,17 @@ window.TREE_DATA = {
           "node_id": 210,
           "type": "question",
           "depth": 4,
-          "question_id": "intl_ws_india_thailand",
-          "question_text": "「インド」または「タイ」の選手（シンドゥ・ネワール・インタノン・チョチュウォン・ブサナン）のうち、世界選手権または五輪のメダリスト・全英OPファイナリストの4名（シンドゥ・ネワール・インタノン・チョチュウォン）ですか？",
+          "question_id": "intl_ws_world_champ_or_no1",
+          "question_text": "世界選手権での優勝（金メダル）、または世界ランキング1位への到達を達成したことがありますか？",
           "tier": 2,
-          "category": "国籍",
+          "category": "世界女王・世界ランク1位",
           "candidates_count": 8,
           "yes": {
             "node_id": 211,
             "type": "question",
             "depth": 5,
-            "question_id": "intl_ws_india_vs_thailand",
-            "question_text": "「インド」代表としてオリンピックメダルを獲得した選手（P.V.シンドゥ ／ サイナ・ネワール）ですか？",
+            "question_id": "intl_ws_india_vs_sea_legends",
+            "question_text": "「インド」代表としてオリンピックメダルを獲得した選手ですか？（※「タイ」または「インドネシア」の代表選手なら「いいえ」）",
             "tier": 3,
             "category": "国籍",
             "candidates_count": 4,
@@ -4707,7 +4707,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "intl_ws_sindhu_vs_nehwal",
-              "question_text": "身長179cmで、2016年リオ五輪銀・2021年東京五輪銅・2019年世界選手権金メダルを獲得した選手ですか？",
+              "question_text": "身長179cmの長身で、2016年リオ五輪銀・2021年東京五輪銅の2大会連続メダルおよび2019年世界選手権優勝を獲得していますか？",
               "tier": 3,
               "category": "身長・実績",
               "candidates_count": 2,
@@ -4786,10 +4786,10 @@ window.TREE_DATA = {
               "node_id": 215,
               "type": "question",
               "depth": 6,
-              "question_id": "intl_ws_intanon_vs_chochuwong",
-              "question_text": "2013年世界選手権を18歳の史上最年少で制覇し、華麗なラケットワークから「天才少女」と呼ばれたタイの絶対的ヒロインですか？",
+              "question_id": "intl_ws_intanon_vs_susanti",
+              "question_text": "「タイ」代表の現役選手で、2013年の世界選手権を18歳の史上最年少で制覇しましたか？（※1992年バルセロナ五輪でバドミントン競技初の女子シングルス金メダルを獲得した「インドネシア」の伝説女王なら「いいえ」）",
               "tier": 3,
-              "category": "実績・世界最年少女王",
+              "category": "国籍・時代",
               "candidates_count": 2,
               "yes": {
                 "node_id": 216,
@@ -4831,33 +4831,33 @@ window.TREE_DATA = {
                 "type": "leaf",
                 "depth": 7,
                 "player": {
-                  "id": 108,
-                  "name_ja": "ポーンパウィ・チョチュウォン",
-                  "name_kana": "ぽーんぱうぃちょちゅうぉん",
-                  "name_en": "Pornpawee CHOCHUWONG",
-                  "country": "タイ",
-                  "flag": "🇹🇭",
+                  "id": 111,
+                  "name_ja": "スシ・スサンティ",
+                  "name_kana": "すしすさんてぃ",
+                  "name_en": "Susi SUSANTI",
+                  "country": "インドネシア",
+                  "flag": "🇮🇩",
                   "gender": "F",
                   "category": "WS",
                   "category_label": "女子シングルス",
-                  "team": "タイ代表",
+                  "team": "元インドネシア代表",
                   "hand": "右利き",
                   "tags": [
-                    "2021全英OP準優勝",
-                    "スイスOP優勝",
-                    "タイ代表主力"
+                    "バルセロナ五輪金メダル",
+                    "1993世界女王",
+                    "全英OP4度優勝"
                   ],
-                  "summary": "2021年全英オープン準優勝・2020年スペインマスターズ＆2023年スイスオープン優勝など世界ランキング上位で活躍するタイの実力者。"
+                  "summary": "1992年バルセロナ五輪で男女シングルスアベック金メダルを達成したバドミントン史上の大レジェンド。"
                 },
                 "pokemon": {
-                  "id": 108,
-                  "name_ja": "ポーンパウィ・チョチュウォン",
-                  "name_kana": "ぽーんぱうぃちょちゅうぉん",
-                  "name_en": "Pornpawee CHOCHUWONG",
+                  "id": 111,
+                  "name_ja": "スシ・スサンティ",
+                  "name_kana": "すしすさんてぃ",
+                  "name_en": "Susi SUSANTI",
                   "type1": "女子シングルス",
-                  "type2": "タイ代表",
-                  "country": "タイ",
-                  "flag": "🇹🇭"
+                  "type2": "元インドネシア代表",
+                  "country": "インドネシア",
+                  "flag": "🇮🇩"
                 },
                 "candidates_count": 1
               }
@@ -4868,16 +4868,16 @@ window.TREE_DATA = {
             "type": "question",
             "depth": 5,
             "question_id": "intl_ws_indonesia_active",
-            "question_text": "「インドネシア」の現役女子シングルス代表（グレゴリア・マリスカ・トゥンジュン ／ プトリ・クスマ・ワルダニ）ですか？",
+            "question_text": "「インドネシア」代表の現役女子シングルス選手ですか？（※「タイ」代表の現役選手なら「いいえ」）",
             "tier": 3,
-            "category": "国籍・現役",
+            "category": "国籍",
             "candidates_count": 4,
             "yes": {
               "node_id": 219,
               "type": "question",
               "depth": 6,
               "question_id": "intl_ws_tunjung_vs_wardani",
-              "question_text": "2023年熊本マスターズジャパン初代女王であり、2024年パリ五輪で銅メダルを獲得したインドネシアの絶対的エースですか？",
+              "question_text": "2023年熊本マスターズジャパン（Super 500）初代女王であり、2024年パリ五輪で銅メダルを獲得した選手ですか？",
               "tier": 3,
               "category": "五輪メダル・実績",
               "candidates_count": 2,
@@ -4937,7 +4937,7 @@ window.TREE_DATA = {
                     "インドネシア次世代エース",
                     "2002年生まれ"
                   ],
-                  "summary": "スペインマスターズ・オーレアンマスターズ・韓国マスターズを制し、トゥンジュンと共にインドネシアWSを牽引する若き実力派。"
+                  "summary": "スペインマスターズ・オーレアンマスターズ・韓国マスターズを制し、インドネシアWSを牽引する若き実力派。"
                 },
                 "pokemon": {
                   "id": 110,
@@ -4956,43 +4956,43 @@ window.TREE_DATA = {
               "node_id": 222,
               "type": "question",
               "depth": 6,
-              "question_id": "intl_ws_susanti_vs_busanan",
-              "question_text": "1992年バルセロナ五輪でバドミントン競技初の女子シングルス金メダルを獲得したインドネシアの伝説的女王ですか？",
+              "question_id": "intl_ws_chochuwong_vs_busanan",
+              "question_text": "1998年生まれで、2021年の全英オープン準優勝および2020年スペインマスターズ・2023年スイスオープン優勝を達成した選手ですか？（※1996年生まれで2024年カナダOP優勝・ジャパンOP準優勝の選手なら「いいえ」）",
               "tier": 3,
-              "category": "五輪金メダル・伝説",
+              "category": "実績・全英OP",
               "candidates_count": 2,
               "yes": {
                 "node_id": 223,
                 "type": "leaf",
                 "depth": 7,
                 "player": {
-                  "id": 111,
-                  "name_ja": "スシ・スサンティ",
-                  "name_kana": "すしすさんてぃ",
-                  "name_en": "Susi SUSANTI",
-                  "country": "インドネシア",
-                  "flag": "🇮🇩",
+                  "id": 108,
+                  "name_ja": "ポーンパウィ・チョチュウォン",
+                  "name_kana": "ぽーんぱうぃちょちゅうぉん",
+                  "name_en": "Pornpawee CHOCHUWONG",
+                  "country": "タイ",
+                  "flag": "🇹🇭",
                   "gender": "F",
                   "category": "WS",
                   "category_label": "女子シングルス",
-                  "team": "元インドネシア代表",
+                  "team": "タイ代表",
                   "hand": "右利き",
                   "tags": [
-                    "バルセロナ五輪金メダル",
-                    "1993世界女王",
-                    "全英OP4度優勝"
+                    "2021全英OP準優勝",
+                    "スイスOP優勝",
+                    "タイ代表主力"
                   ],
-                  "summary": "1992年バルセロナ五輪で夫アラン・ブディクスマと共に男女シングルスアベック金メダルを達成したバドミントン史上の大レジェンド。"
+                  "summary": "2021年全英オープン準優勝・2020年スペインマスターズ＆2023年スイスオープン優勝など世界ランキング上位で活躍するタイの実力者。"
                 },
                 "pokemon": {
-                  "id": 111,
-                  "name_ja": "スシ・スサンティ",
-                  "name_kana": "すしすさんてぃ",
-                  "name_en": "Susi SUSANTI",
+                  "id": 108,
+                  "name_ja": "ポーンパウィ・チョチュウォン",
+                  "name_kana": "ぽーんぱうぃちょちゅうぉん",
+                  "name_en": "Pornpawee CHOCHUWONG",
                   "type1": "女子シングルス",
-                  "type2": "元インドネシア代表",
-                  "country": "インドネシア",
-                  "flag": "🇮🇩"
+                  "type2": "タイ代表",
+                  "country": "タイ",
+                  "flag": "🇹🇭"
                 },
                 "candidates_count": 1
               },
@@ -5040,16 +5040,16 @@ window.TREE_DATA = {
         "type": "question",
         "depth": 3,
         "question_id": "intl_wd_china_korea_top",
-        "question_text": "「中国」の五輪メダリスト（陳清晨・賈一凡・劉聖書・譚寧・黄雅瓊・黄東萍）または「韓国」の現WD世界1位ペア（ペク・ハナ・イ・ソヒ）の8名の誰かですか？",
+        "question_text": "「中国」代表の五輪メダリスト（金・銀）、または2024年の全英オープンとワールドツアーファイナルズを両方制覇した「韓国」の女子ダブルス世界ランキング1位ペアの選手ですか？",
         "tier": 2,
-        "category": "国籍",
+        "category": "国籍・実績",
         "candidates_count": 16,
         "yes": {
           "node_id": 226,
           "type": "question",
           "depth": 4,
           "question_id": "intl_wd_china_wd_pairs",
-          "question_text": "2024年パリ五輪の女子ダブルス決勝で激突した中国代表の2大ペア（凡晨：陳清晨・賈一凡 ／ 聖譚：劉聖書・譚寧）の4人の誰かですか？",
+          "question_text": "「中国」代表の女子ダブルス（WD）専任選手で、2024年パリ五輪の女子ダブルス決勝を戦った（金メダルまたは銀メダルを獲得した）選手ですか？",
           "tier": 2,
           "category": "国籍・種目",
           "candidates_count": 8,
@@ -5058,7 +5058,7 @@ window.TREE_DATA = {
             "type": "question",
             "depth": 5,
             "question_id": "intl_wd_fanchen_vs_shengtan",
-            "question_text": "世界選手権を史上最多の4度制覇し、2024年パリ五輪で悲願の金メダルを獲得した「凡晨（陳清晨・賈一凡）」ペアのどちらかですか？",
+            "question_text": "1997年生まれの同級生コンビで、世界選手権を史上最多の4度制覇し、2024年パリ五輪で悲願の「金メダル」を獲得したペアの選手ですか？（※2000年代生まれでパリ五輪「銀メダル」の若手ペアなら「いいえ」）",
             "tier": 3,
             "category": "実績・世代",
             "candidates_count": 4,
@@ -5067,7 +5067,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "intl_wd_chen_vs_jia",
-              "question_text": "気迫の掛け声と超高速の前衛インターセプト・ゲームメイクでペアを引っ張る右利きの選手（陳清晨）ですか？（※長身サウスポー強打者の賈一凡なら「いいえ」）",
+              "question_text": "右利きで、気迫の掛け声と超高速の「前衛」インターセプト・ゲームメイクでペアを引っ張る選手ですか？（※サウスポー［左利き］で後衛からの強打を担う長身の相方なら「いいえ」）",
               "tier": 3,
               "category": "利き手・役割",
               "candidates_count": 2,
@@ -5092,7 +5092,7 @@ window.TREE_DATA = {
                     "世界選手権4度優勝",
                     "凡晨コンビ"
                   ],
-                  "summary": "賈一凡との「凡晨」ペアで世界選手権4勝・東京五輪銀・パリ五輪金メダルを達成。コートを鼓舞する情熱と神出鬼没の前衛が代名詞。"
+                  "summary": "世界選手権4勝・東京五輪銀・パリ五輪金メダルを達成。コートを鼓舞する情熱と神出鬼没の前衛が代名詞。"
                 },
                 "pokemon": {
                   "id": 113,
@@ -5127,7 +5127,7 @@ window.TREE_DATA = {
                     "世界選手権4度優勝",
                     "サウスポー強打"
                   ],
-                  "summary": "左腕から繰り出す重厚なスマッシュと多彩な変化球で「凡晨」の後衛を10年以上支え、パリ五輪金メダルで頂点を極めた最強サウスポー。"
+                  "summary": "左腕から繰り出す重厚なスマッシュと多彩な変化球で後衛を10年以上支え、パリ五輪金メダルで頂点を極めた最強サウスポー。"
                 },
                 "pokemon": {
                   "id": 114,
@@ -5147,9 +5147,9 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "intl_wd_liushengshu_vs_tanning",
-              "question_text": "2004年生まれ（2022年世界ジュニアWD&XD二冠）で、豪快なジャンピングスマッシュを連発する選手（劉聖書）ですか？",
+              "question_text": "2004年生まれ（2022年世界ジュニア選手権WD&XD二冠）で、主に後衛から男子並みの豪快なジャンピングスマッシュを連発する選手ですか？（※2003年生まれでシングルス出身の広い守備範囲とドライブを誇る相方なら「いいえ」）",
               "tier": 3,
-              "category": "年齢・特徴",
+              "category": "年齢・役割",
               "candidates_count": 2,
               "yes": {
                 "node_id": 232,
@@ -5172,7 +5172,7 @@ window.TREE_DATA = {
                     "世界ランク1位",
                     "聖譚コンビ"
                   ],
-                  "summary": "譚寧との20代前半コンビ「聖譚」でパリ五輪銀メダル＆世界ランク1位に躍り出た中国WDの新女王。男子並みの連続強打が武器。"
+                  "summary": "20代前半コンビでパリ五輪銀メダル＆世界ランク1位に躍り出た中国WDの新女王。男子並みの連続強打が武器。"
                 },
                 "pokemon": {
                   "id": 115,
@@ -5207,7 +5207,7 @@ window.TREE_DATA = {
                     "世界ランク1位",
                     "聖譚コンビ"
                   ],
-                  "summary": "元々シングルス出身の広い守備範囲とパワフルなドライブで劉聖書と共に世界ランキング1位・ワールドツアー複数制覇を成し遂げた新世代スター。"
+                  "summary": "元々シングルス出身の広い守備範囲とパワフルなドライブで世界ランキング1位・ワールドツアー複数制覇を成し遂げた新世代スター。"
                 },
                 "pokemon": {
                   "id": 116,
@@ -5228,7 +5228,7 @@ window.TREE_DATA = {
             "type": "question",
             "depth": 5,
             "question_id": "intl_wd_china_xd_queens",
-            "question_text": "「中国」代表としてオリンピック混合ダブルス（XD）の金メダルを獲得した前衛女王（黄雅瓊 ／ 黄東萍）ですか？",
+            "question_text": "「中国」代表としてオリンピック混合ダブルス（XD）の金メダルを獲得した前衛女王ですか？（※「韓国」代表の女子ダブルス選手なら「いいえ」）",
             "tier": 3,
             "category": "国籍・種目",
             "candidates_count": 4,
@@ -5237,9 +5237,9 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "intl_wd_huangyaqiong_vs_huangdongping",
-              "question_text": "鄭思維との「雅思」ペアで2024年パリ五輪金メダル＆世界選手権3度優勝を飾り、表彰式直後にプロポーズを受けたことでも話題になった選手ですか？",
+              "question_text": "世界選手権の混合ダブルスで3度優勝し、2024年パリ五輪で無失ゲーム完全優勝の金メダルを獲得（表彰式直後にプロポーズを受けたことでも話題）した選手ですか？（※2021年東京五輪の混合ダブルス金メダリストなら「いいえ」）",
               "tier": 3,
-              "category": "五輪金・パートナー",
+              "category": "五輪金・実績",
               "candidates_count": 2,
               "yes": {
                 "node_id": 236,
@@ -5262,7 +5262,7 @@ window.TREE_DATA = {
                     "世界選手権3度優勝",
                     "史上最高のXD前衛"
                   ],
-                  "summary": "ネット前の絶対的な制圧力と読みの鋭さで鄭思維と共に混合ダブルス史を塗り替え、パリ五輪で無失ゲーム完全優勝を果たした女王。"
+                  "summary": "ネット前の絶対的な制圧力と読みの鋭さで混合ダブルス史を塗り替え、パリ五輪で無失ゲーム完全優勝を果たした女王。"
                 },
                 "pokemon": {
                   "id": 117,
@@ -5294,10 +5294,10 @@ window.TREE_DATA = {
                   "hand": "右利き",
                   "tags": [
                     "東京五輪XD金メダル",
-                    "馮彦哲/王懿律とのペア",
-                    "世界ランク1位経験"
+                    "世界ランク1位経験",
+                    "中国XDエース"
                   ],
-                  "summary": "王懿律とのペアで2021年東京五輪XD金メダルを獲得し、その後は若手の馮彦哲（フェン・イェンジェ）を引っ張って再び世界1位に立った名手。"
+                  "summary": "2021年東京五輪XD金メダルを獲得し、その後も若手パートナーを引っ張って再び世界ランキング1位に立った名手。"
                 },
                 "pokemon": {
                   "id": 118,
@@ -5317,7 +5317,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "intl_wd_baek_vs_lee",
-              "question_text": "2000年生まれで、鉄壁のレシーブと長いラリーを作る配球でペアの守備・展開の軸を担う選手（ペク・ハナ）ですか？（※1994年生まれのアタッカー・イ・ソヒなら「いいえ」）",
+              "question_text": "2000年生まれで、鉄壁のレシーブと長いラリーを作る配球でペアの守備・展開の軸を担う選手ですか？（※1994年生まれで世界ジュニア女王経験を持つ攻撃型の年上パートナーなら「いいえ」）",
               "tier": 3,
               "category": "世代・特徴",
               "candidates_count": 2,
@@ -5342,7 +5342,7 @@ window.TREE_DATA = {
                     "ツアーファイナルズ優勝",
                     "世界ランク1位経験"
                   ],
-                  "summary": "イ・ソヒとのペアで2024年全英オープン・アジア選手権・ツアーファイナルズを制覇し世界ランキング1位に到達した韓国WDの守備の要。"
+                  "summary": "2024年全英オープン・アジア選手権・ツアーファイナルズを制覇し世界ランキング1位に到達した韓国WDの守備の要。"
                 },
                 "pokemon": {
                   "id": 119,
@@ -5377,7 +5377,7 @@ window.TREE_DATA = {
                     "ツアーファイナルズ優勝",
                     "世界ランク1位経験"
                   ],
-                  "summary": "シン・ソンチャンとのペアに続きペク・ハナとのペアでも世界トップに君臨。鋭いスマッシュと豊富な経験で韓国女子ダブルスを牽引する。"
+                  "summary": "異なるパートナーとのペアで全英オープンを2度制覇し世界トップに君臨。鋭いスマッシュと豊富な経験で韓国女子ダブルスを牽引する。"
                 },
                 "pokemon": {
                   "id": 120,
@@ -5399,7 +5399,7 @@ window.TREE_DATA = {
           "type": "question",
           "depth": 4,
           "question_id": "intl_wd_korea_malaysia_wd",
-          "question_text": "「韓国」の東京五輪銅メダルWDペア（キム・ソヨン ／ コン・ヒヨン）または「マレーシア」のトップWDペア（パーリー・タン ／ ティナー）の4人の誰かですか？",
+          "question_text": "「韓国」の2021年東京五輪・女子ダブルス銅メダルペア、または「マレーシア」の2024年パリ五輪・女子ダブルスベスト4ペアの選手ですか？（※「インドネシア」の女子ダブルス選手、または混合ダブルス［XD］の世界女王なら「いいえ」）",
           "tier": 2,
           "category": "国籍・種目",
           "candidates_count": 8,
@@ -5408,7 +5408,7 @@ window.TREE_DATA = {
             "type": "question",
             "depth": 5,
             "question_id": "intl_wd_kimkong_vs_pearlythinaah",
-            "question_text": "「韓国」代表で、東京五輪銅メダル・2023年全英オープン優勝を飾った「キムコン（キム・ソヨン・コン・ヒヨン）」ペアのどちらかですか？",
+            "question_text": "「韓国」代表で、2021年東京五輪の銅メダルおよび2023年全英オープン優勝を達成したペアの選手ですか？（※「マレーシア」代表ペアなら「いいえ」）",
             "tier": 3,
             "category": "国籍",
             "candidates_count": 4,
@@ -5417,7 +5417,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "intl_wd_kim_vs_kong",
-              "question_text": "サウスポー（左利き）で、豪快な強打とパワフルなスマッシュを放つコン・ヒヨン選手ですか？（※右利きで前衛・緩急を操るキム・ソヨン選手なら「いいえ」）",
+              "question_text": "サウスポー（左利き）で、後衛からの豪快な強打とパワフルなスマッシュを放つ選手ですか？（※右利きで前衛・緩急を操る1992年生まれの相方なら「いいえ」）",
               "tier": 3,
               "category": "利き手・プレースタイル",
               "candidates_count": 2,
@@ -5442,7 +5442,7 @@ window.TREE_DATA = {
                     "2023全英OP優勝",
                     "キムコン"
                   ],
-                  "summary": "女子ダブルス界屈指の左腕パワーヒッター。キム・ソヨンとの「キムコン」で東京五輪銅・全英OP制覇・ジャパンOP優勝など数々の栄冠を獲得。"
+                  "summary": "女子ダブルス界屈指の左腕パワーヒッター。東京五輪銅・全英OP制覇・ジャパンOP優勝など数々の栄冠を獲得。"
                 },
                 "pokemon": {
                   "id": 121,
@@ -5477,7 +5477,7 @@ window.TREE_DATA = {
                     "2023全英OP優勝",
                     "キムコン"
                   ],
-                  "summary": "巧みなラケットワークと前衛でのゲームメイクでコン・ヒヨンの強打を引き出し、2022年世界選手権銀メダル・世界ランク1位到達を果たした。"
+                  "summary": "巧みなラケットワークと前衛でのゲームメイクで相方の強打を引き出し、2022年世界選手権銀メダル・世界ランク1位到達を果たした。"
                 },
                 "pokemon": {
                   "id": 122,
@@ -5497,9 +5497,9 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "intl_wd_pearly_vs_thinaah",
-              "question_text": "角度のある背面ショットやジャンプスマッシュ、ネット前の素早い飛びつきで攻撃の起点を作る小柄な選手（パーリー・タン）ですか？",
+              "question_text": "2000年生まれで、角度のある背面ショットやジャンプスマッシュ、ネット前の素早い飛びつきで攻撃の起点を作る選手ですか？（※1998年生まれで170cmのリーチと無尽蔵の持久力でコート全面をカバーする相方なら「いいえ」）",
               "tier": 3,
-              "category": "役割・特徴",
+              "category": "世代・特徴",
               "candidates_count": 2,
               "yes": {
                 "node_id": 247,
@@ -5522,7 +5522,7 @@ window.TREE_DATA = {
                     "フレンチOP優勝",
                     "パーリー＆ティナー"
                   ],
-                  "summary": "ティナーとのペアでマレーシア女子ダブルス史上初の五輪ベスト4（2024パリ）に進出。閃きあふれる攻撃センスで観客を魅了する。"
+                  "summary": "マレーシア女子ダブルス史上初の五輪ベスト4（2024パリ）に進出。閃きあふれる攻撃センスで観客を魅了する。"
                 },
                 "pokemon": {
                   "id": 123,
@@ -5557,7 +5557,7 @@ window.TREE_DATA = {
                     "フレンチOP優勝",
                     "驚異のコートカバー"
                   ],
-                  "summary": "170cmのリーチと無尽蔵の持久力でコート全面をカバーし、パーリー・タンと共に世界ランキングTOP5入りを果たしたマレーシアの柱。"
+                  "summary": "170cmのリーチと無尽蔵の持久力でコート全面をカバーし、世界ランキングTOP5入りを果たしたマレーシアの柱。"
                 },
                 "pokemon": {
                   "id": 124,
@@ -5578,7 +5578,7 @@ window.TREE_DATA = {
             "type": "question",
             "depth": 5,
             "question_id": "intl_wd_indonesia_vs_xd_champions",
-            "question_text": "「インドネシア」代表の女子ダブルスペア（アプリアニ・ラハユ ／ シティ・ファディア）ですか？（※混合ダブルス世界女王のサプシリー、チェ・ユジョンなら「いいえ」）",
+            "question_text": "「インドネシア」代表の女子ダブルス（WD）選手ですか？（※混合ダブルス［XD］で世界選手権を制した「タイ」または「韓国」の選手なら「いいえ」）",
             "tier": 3,
             "category": "国籍・種目",
             "candidates_count": 4,
@@ -5587,7 +5587,7 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "intl_wd_rahayu_vs_fadia",
-              "question_text": "2021年東京五輪でグレイシア・ポリイとのペアでインドネシア女子ダブルス史上初のオリンピック金メダルを獲得した選手ですか？",
+              "question_text": "2021年東京五輪の女子ダブルスで、インドネシア女子ダブルス史上初の「オリンピック金メダル」を獲得した選手ですか？",
               "tier": 3,
               "category": "五輪金メダル",
               "candidates_count": 2,
@@ -5612,7 +5612,7 @@ window.TREE_DATA = {
                     "2023世界選手権銀",
                     "爆発的パワー"
                   ],
-                  "summary": "東京五輪でポリイと共に感動の金メダルを獲得。その後もシティ・ファディアと組み2023年世界選手権銀メダルに輝いたインドネシアの太陽。"
+                  "summary": "東京五輪でインドネシアWD初の金メダルを獲得。その後も新パートナーと組み2023年世界選手権銀メダルに輝いたインドネシアの太陽。"
                 },
                 "pokemon": {
                   "id": 125,
@@ -5647,7 +5647,7 @@ window.TREE_DATA = {
                     "マレーシアOP優勝",
                     "2000年生まれ"
                   ],
-                  "summary": "ラハユの新パートナーに抜擢されるやいなやマレーシアOP・シンガポールOP制覇＆2023年世界選手権銀メダルを獲得した俊敏なオールラウンダー。"
+                  "summary": "東京五輪金メダリストの新パートナーに抜擢されるやいなやマレーシアOP・シンガポールOP制覇＆2023年世界選手権銀メダルを獲得した俊敏な名手。"
                 },
                 "pokemon": {
                   "id": 126,
@@ -5667,9 +5667,9 @@ window.TREE_DATA = {
               "type": "question",
               "depth": 6,
               "question_id": "intl_wd_sapsiree_vs_chaeyujung",
-              "question_text": "「タイ」代表（愛称「ポポ」）で、デチャポルとの「バスポー」ペアで2021年世界選手権優勝・世界ランキング1位に輝いた選手ですか？",
+              "question_text": "「タイ」代表の右利き選手で、2021年の世界選手権・混合ダブルスで優勝し世界ランキング1位に到達しましたか？（※「韓国」代表のサウスポーで2023年世界選手権・混合ダブルス優勝の選手なら「いいえ」）",
               "tier": 3,
-              "category": "国籍・愛称",
+              "category": "国籍・利き手",
               "candidates_count": 2,
               "yes": {
                 "node_id": 254,
@@ -5692,7 +5692,7 @@ window.TREE_DATA = {
                     "元世界ランク1位",
                     "愛称：ポポ"
                   ],
-                  "summary": "デチャポルとの「バスポー」ペアでワールドツアー3週連続優勝・世界選手権制覇・世界ランク1位を達成したクールで鉄壁な前衛職人。"
+                  "summary": "ワールドツアー3週連続優勝・2021年世界選手権制覇・世界ランク1位を達成したクールで鉄壁な前衛職人。"
                 },
                 "pokemon": {
                   "id": 127,
@@ -5725,9 +5725,9 @@ window.TREE_DATA = {
                   "tags": [
                     "2023世界選手権XD女王",
                     "サウスポー前衛",
-                    "ソ・スンジェの相方"
+                    "韓国XD女王"
                   ],
-                  "summary": "ソ・スンジェとのサウスポー混合ダブルスで中国「雅思」を破り2023年世界選手権金メダルを獲得した韓国史上屈指の左腕ネットプレーヤー。"
+                  "summary": "サウスポー同士の混合ダブルスで2023年世界選手権金メダルを獲得した韓国史上屈指の左腕ネットプレーヤー。"
                 },
                 "pokemon": {
                   "id": 128,
